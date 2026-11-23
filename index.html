@@ -6191,6 +6191,10 @@ const nutriContent={"hero": "<img class=\"health-opening-image\" src=\"data:imag
 function livingWatersContent() {
  const cover = new URL('assets/living-waters.webp', document.baseURI).href;
  const storyboard = new URL('assets/living-waters-storyboard.webp', document.baseURI).href;
+ const figure = (name, alt, caption) => `<figure>
+   <img src="${new URL('assets/living-waters-' + name + '.webp', document.baseURI).href}" loading="lazy" decoding="async" alt="${alt}">
+   <figcaption class="body-copy-small">${caption}</figcaption>
+ </figure>`;
  const labels = ['the experience', 'prototype testing', 'design refinements'];
  const section = (index, description, content) => `
    <section class="content-align-left">
@@ -6208,11 +6212,16 @@ function livingWatersContent() {
    subtitle: '<h2 class="subtitle">An interactive fountain for watching, playing and creating together at Sydney Fish Market.</h2>',
    about: `<div class="content-align-right"><div class="copy-block">
      <h3 class="eyebrow">about</h3>
-     <p class="body-copy-large">Living Waters is a team studio proposal for the Blackwattle Bay waterfront. I developed the fountain concept and its rationale, created storyboards, and helped evaluate the prototype and refine the interaction.</p>
+     <p class="body-copy-large">Living Waters is a team studio proposal for the Sydney Fish Market waterfront. I helped develop the concept and design rationale, analysed participant feedback, and created storyboards and visuals to explain the refined proposal.</p>
+     <p class="body-copy-small">Studio project · Sydney Fish Market, Glebe · 2026</p>
    </div></div>`,
    body: `
    <style>
      .water-content figure{margin:0}
+     .water-content .water-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin:20px 0}
+     .water-content .water-note{background:var(--case-panel-background,#eae7df);color:#29251f;border-radius:var(--case-media-radius,10px);padding:clamp(18px,3vw,36px);margin:20px 0}
+     .water-content .water-lead{font-size:clamp(21px,2vw,32px);line-height:1.15;margin-bottom:12px}
+     @media(max-width:650px){.water-content .water-media-grid{grid-template-columns:1fr}}
      .water-content figure img{display:block;width:100%;height:auto;border-radius:var(--case-media-radius,10px)}
      .water-content figcaption{margin-top:12px}
      .water-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin:24px 0}
@@ -6223,6 +6232,11 @@ function livingWatersContent() {
      @media(max-width:650px){.water-modes,.water-finding{grid-template-columns:1fr}}
    </style>
    ${section(0, 'Seven ground pads turn individual actions into a shared response through water, light and sound.', `
+     <div class="water-note">
+       <h3 class="water-lead">An invitation to pause by the water</h3>
+       <p class="body-copy-small">Site observations showed a contrast between the busy indoor circulation and the more open waterfront. We proposed a place to pause and play, with clear paths so people could still move through the area. This shaped four design criteria from the journal: flow and pause, clear wayfinding, accessible participation and comfort.</p>
+     </div>
+     ${figure('design-evolution', 'Journal sketches show the waterfront observation, initial fountain idea, confusion during testing and the revised entry cues.', 'Design Process Journal · How site observations and testing changed the invitation to participate')}
      <div class="water-modes">
        <div><h3>Watch</h3><p class="body-copy-small">Gentle water, light and sound run in passive mode so visitors can pause and observe.</p></div>
        <div><h3>Explore</h3><p class="body-copy-small">Step onto a pad to trigger a response. In the proposed phone experience, scan before stepping to reveal AR fish.</p></div>
@@ -6232,17 +6246,29 @@ function livingWatersContent() {
        <img src="${storyboard}" width="1536" height="1024" loading="lazy" decoding="async" alt="Twelve storyboard panels show visitors watching, scanning a QR code, activating pads and combining their responses.">
        <figcaption class="body-copy-small">Concept storyboard · Passive, individual and group interaction</figcaption>
      </figure>`)}
-   ${section(1, 'We used think-aloud tasks, observation, ease and usability ratings, and follow-up interviews in formative prototype testing.', `
+   ${section(1, 'Four participants attempted five tasks in a formative lab test using think-aloud observation, task-ease ratings, SUS and a follow-up interview.', `
+     <div class="water-media-grid">
+       ${figure('prototype-pads', 'Wired floor pads laid out in the physical prototype.', 'Prototype setup · A reduced arrangement represented the proposed seven interaction spots.')}
+       ${figure('prototype-feedback', 'Green lights around an occupied pad in the prototype.', 'Feedback test · Lighting showed when a pad registered someone stepping onto it.')}
+     </div>
+     <div class="water-note">
+       <h3 class="water-lead">70 / 100 average SUS</h3>
+       <p class="body-copy-small">Three participants had recorded SUS scores. Joining others received task-ease ratings of 5–6 out of 7. The small lab sample, incomplete records and an activation fault limit what we can infer about the waterfront installation.</p>
+     </div>
      <div class="water-findings">
-       <div class="water-finding"><h3>Starting was unclear</h3><p class="body-copy-small">Some participants needed clearer cues about where to begin and what to do at a pad.</p></div>
+       <div class="water-finding"><h3>Starting was unclear</h3><p class="body-copy-small">One participant recognised the pads, while another hesitated. One rated pad activation 3 out of 7 for ease. The design needed a visible cue connecting where to stand with what would happen.</p></div>
        <div class="water-finding"><h3>Shared play held interest</h3><p class="body-copy-small">Participants enjoyed the lighting and combined effects, although individual sounds and their meaning were harder to distinguish.</p></div>
      </div>`)}
    ${section(2, 'We kept the choice to watch, try a pad alone or join a group. The proposed changes focused on making each choice easier to understand and access.', `
      <div class="water-findings">
-       <div class="water-finding"><h3>Clearer entry cues</h3><p class="body-copy-small">Simplify the information board and make the pads visibly inviting so visitors can see where to begin.</p></div>
+       <div class="water-finding"><h3>Clearer entry cues</h3><p class="body-copy-small">Use footprints, illuminated pad edges and a short board sequence so visitors can see where to begin and what response to expect.</p></div>
        <div class="water-finding"><h3>Distinct responses</h3><p class="body-copy-small">Give each pad a recognisable visual and sound response so visitors can identify their contribution when several pads are active.</p></div>
        <div class="water-finding"><h3>Accessible participation</h3><p class="body-copy-small">Use flush pads, clear routes and activation that can register wheelchair users. Test these in a site pilot.</p></div>
-       <div class="water-finding"><h3>Cultural interpretation</h3><p class="body-copy-small">Develop sound and interpretation with local Aboriginal artists and knowledge holders before implementation.</p></div>
+       <div class="water-finding"><h3>Cultural interpretation</h3><p class="body-copy-small">Develop sound and interpretation with local Aboriginal artists and knowledge holders, including attribution and permissions.</p></div>
+     </div>
+     <div class="water-note">
+       <h3 class="water-lead">Next step · A staged waterfront pilot</h3>
+       <p class="body-copy-small">Check sensor reliability, dry routes and drainage, and whether visitors can hear and distinguish the responses in market noise. Test the revised invitation with new visitors and assess the optional phone controls and AR separately.</p>
      </div>`)}
    `
  };
