@@ -5908,10 +5908,8 @@ body :is(.body-copy-small,.body-copy-large){font-size:clamp(16px,1.2vw,19px)!imp
 .harmony-detail p{margin:0}
 .harmony-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:0;list-style:none;width:100%;margin:0}
 .harmony-flow li{padding:12px;border-top:1px solid var(--line)}
-.harmony-system{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;width:100%;align-items:start}
-.harmony-palette{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
-.harmony-palette li{padding:12px;background:var(--case-panel-background,#eae7df);border-radius:8px}
-.harmony-palette span{display:block;height:48px;margin-bottom:8px;background:var(--swatch);border-radius:4px}
+.harmony-system{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;width:100%;align-items:start}
+.harmony-system a{display:block}
 @media(max-width:700px){.harmony-screens{grid-template-columns:repeat(2,minmax(0,1fr))}.harmony-system{grid-template-columns:1fr}.harmony-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 &lt;/style&gt;&lt;section class=&quot;content-align-left&quot;&gt;
       &lt;div class=&quot;content-section harmony-section&quot;&gt;
@@ -5961,16 +5959,36 @@ body :is(.body-copy-small,.body-copy-large){font-size:clamp(16px,1.2vw,19px)!imp
       &lt;div class=&quot;content-section harmony-section&quot;&gt;
         &lt;div class=&quot;section-copy-wrap&quot;&gt;
           &lt;h2 class=&quot;display-medium&quot;&gt;&lt;span class=&quot;display-medium-alt_wrap&quot;&gt;03&lt;/span&gt;design system&lt;/h2&gt;
-          &lt;div class=&quot;caption&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;The final tablet interface uses a dark palette for low-light karaoke rooms, with warm orange highlighting key actions.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;caption&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;The Figma design system defines the colour tokens, type styles and reusable controls behind the tablet interface. Orange draws attention to key actions in a low-light karaoke room.&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;harmony-system&quot;&gt;
-&lt;div&gt;&lt;h3 class=&quot;eyebrow&quot;&gt;Colours used in the final tablet screens&lt;/h3&gt;&lt;ul class=&quot;harmony-palette body-copy-small&quot;&gt;&lt;li&gt;&lt;span style=&quot;--swatch:#291814&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Background · #291814&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;--swatch:#3E241F&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Panel · #3E241F&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;--swatch:#D14C18&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Action · #D14C18&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;--swatch:#CBD8ED&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Accent · #CBD8ED&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
-      &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/components.webp&quot; width=&quot;626&quot; height=&quot;869&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Reusable next-singer component with microphone illustration and countdown&quot;&gt;
-      &lt;figcaption class=&quot;health-panel-title&quot;&gt;Reusable next-singer card&lt;/figcaption&gt;
+      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/system-colours.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size Figma export for colour primitives and tokens&quot;&gt;
+        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/system-colours.webp&quot; width=&quot;1641&quot; height=&quot;1900&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Figma board showing black, blue, brown, green, orange, yellow and white colour scales with semantic tokens below&quot;&gt;
+      &lt;/a&gt;
+      &lt;figcaption class=&quot;health-panel-title&quot;&gt;Colour primitives and tokens&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
+      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/system-typography.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size Figma export for typography&quot;&gt;
+        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/system-typography.webp&quot; width=&quot;1302&quot; height=&quot;1800&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Figma typography board showing heading, caption and body styles at multiple sizes&quot;&gt;
+      &lt;/a&gt;
+      &lt;figcaption class=&quot;health-panel-title&quot;&gt;Typography&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
+      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/system-buttons.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size Figma export for buttons and controls&quot;&gt;
+        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/system-buttons.webp&quot; width=&quot;1702&quot; height=&quot;1074&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Button sizes with default, hover, focus and disabled states, plus echo dropdown controls&quot;&gt;
+      &lt;/a&gt;
+      &lt;figcaption class=&quot;health-panel-title&quot;&gt;Buttons and controls&lt;/figcaption&gt;
+    &lt;/figure&gt;
+&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
+      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/system-cards.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size Figma export for cards and containers&quot;&gt;
+        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/system-cards.webp&quot; width=&quot;1784&quot; height=&quot;1120&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Card state variants, an Up Next container and microphone controls&quot;&gt;
+      &lt;/a&gt;
+      &lt;figcaption class=&quot;health-panel-title&quot;&gt;Cards and containers&lt;/figcaption&gt;
     &lt;/figure&gt;
 &lt;/div&gt;
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;What the system carries across screens&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Vibe cards, countdowns and labelled audio controls give each stage a recognisable structure. Clearer primary and secondary actions help people distinguish the next step from optional controls.&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;harmony-detail&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;&lt;a href=&quot;https://www.figma.com/design/eUvaouJSDKIh0MDnGS6jnk/Design-System?node-id=0-1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Explore the full design system in Figma&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;&lt;a href=&quot;https://www.figma.com/proto/eUvaouJSDKIh0MDnGS6jnk/Design-System?node-id=1179-9716&amp;amp;scaling=contain&amp;amp;page-id=1%3A3&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Explore the tablet prototype in Figma&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/section&gt;&lt;div class=&quot;case_study_pagination&quot;&gt;&lt;a href=&quot;https://iamshruthi.com/lives-lived-well/&quot; class=&quot;next-case-study w-inline-block&quot; data-portfolio-case=&quot;lives-lived-well&quot; aria-label=&quot;Previous case study: Lives Lived Well&quot; title=&quot;Previous: Lives Lived Well&quot;&gt;&lt;div class=&quot;looping-shape copy-circle w-embed&quot;&gt;&lt;svg width=&quot;166&quot; &quot; height=&quot;166&quot; viewbox=&quot;0 0 166 166&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
