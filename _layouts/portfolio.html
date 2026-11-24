@@ -6196,7 +6196,7 @@ const projectOverviews={"nomad-nook": ["A travel app concept for exploring a des
 
 
 function livingWatersContent() {
- const cover = new URL('assets/living-waters.webp', document.baseURI).href;
+ const cover = new URL('assets/living-waters-marquee.webp?v=centred-title', document.baseURI).href;
  const storyboard = new URL('assets/living-waters-storyboard.webp', document.baseURI).href;
  const figure = (name, alt, caption) => `<figure>
    <img src="${new URL('assets/living-waters-' + name + '.webp', document.baseURI).href}" loading="lazy" decoding="async" alt="${alt}">
@@ -6215,7 +6215,7 @@ function livingWatersContent() {
    </section>`;
  return {
    labels,
-   hero: `<img class="health-opening-image" src="${cover}" width="1672" height="941" alt="Concept render of Living Waters at Sydney Fish Market at dusk">`,
+   hero: `<img class="health-opening-image" src="${cover}" width="1440" height="970" alt="Living Waters interactive public installation concept at Sydney Fish Market">`,
    subtitle: '<h2 class="subtitle">An interactive fountain for watching, playing and creating together at Sydney Fish Market.</h2>',
    about: `<div class="content-align-right"><div class="copy-block">
      <h3 class="eyebrow">about</h3>
