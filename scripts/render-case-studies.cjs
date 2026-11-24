@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
 const layout = read('_layouts/portfolio.html');
 const baseURI = 'https://iamshruthi.com/';
-const media = html => html.replaceAll('__PORTFOLIO_MEDIA__/', '/assets/media/');
+const media = html => html.replaceAll('__PORTFOLIO_MEDIA__/', baseURI + 'assets/media/');
 const template = media(read('assets/case-studies/template.html'));
 const router = layout.split('<script id="lives-lived-well-router">')[1].split('</script>')[0];
 const buildCode = router.slice(router.indexOf('const projects='), router.indexOf('function syncTheme'));
@@ -25,10 +25,16 @@ const document = {
 const {projects, projectDocument} = vm.runInNewContext(
   buildCode + '\n({projects, projectDocument})', {URL, document, caseUrl: slug => new URL(slug + '/', baseURI)}
 );
+const frameDirectory = path.join(root, '_includes', 'case-frames');
+fs.mkdirSync(frameDirectory, {recursive: true});
+
 for (const [slug, project] of Object.entries(projects)) {
   const custom = slug === 'lives-lived-well' || slug === 'nutripaw';
   const content = custom ? JSON.parse(media(read('assets/case-studies/' + slug + '.json'))) : null;
-  const html = projectDocument(project, template, content);
+  const html = projectDocument(project, template, content)
+    .replace(/<title>[\s\S]*?<\/title>/i, '<title>' + project.title + ' — Shruthi Gurunathan</title>');
+  const srcdoc = html.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  fs.writeFileSync(path.join(frameDirectory, slug + '.html'), srcdoc.replace(/[ \t]+$/gm, ''));
   const start = html.indexOf('<section class="case-study-hero">');
   const end = html.indexOf('<div class="case_study_pagination">', start);
   if (start < 0 || end < 0) throw new Error('Incomplete case study: ' + slug);
@@ -44,6 +50,6 @@ for (const [slug, project] of Object.entries(projects)) {
       return `<${element}>${copy}</${element}>`;
     }).filter(Boolean);
   if (text.length < 3) throw new Error('Missing case study text: ' + slug);
-  const frontMatter = `---\nlayout: portfolio\ncase_study: true\ntitle: ${project.title} — Shruthi Gurunathan\n---\n`;
+  const frontMatter = `---\nlayout: portfolio\ncase_study: true\ncase_slug: ${slug}\ntitle: ${project.title} — Shruthi Gurunathan\n---\n`;
   fs.writeFileSync(path.join(root, slug, 'index.html'), frontMatter + text.join('\n') + '\n');
 }
