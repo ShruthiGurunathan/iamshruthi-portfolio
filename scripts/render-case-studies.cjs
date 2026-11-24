@@ -29,7 +29,7 @@ const frameDirectory = path.join(root, '_includes', 'case-frames');
 fs.mkdirSync(frameDirectory, {recursive: true});
 
 for (const [slug, project] of Object.entries(projects)) {
-  const custom = slug === 'lives-lived-well' || slug === 'nutripaw';
+  const custom = slug === 'lives-lived-well' || slug === 'nutripaw' || slug === 'harmony-sync';
   const content = custom ? JSON.parse(media(read('assets/case-studies/' + slug + '.json'))) : null;
   const html = projectDocument(project, template, content)
     .replace(/<title>[\s\S]*?<\/title>/i, '<title>' + project.title + ' — Shruthi Gurunathan</title>');

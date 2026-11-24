@@ -6301,7 +6301,7 @@ function loadCaseFile(filename) {
 }
 
 async function loadCaseStudy(slug) {
- const customContent = slug === 'lives-lived-well' || slug === 'nutripaw';
+ const customContent = slug === 'lives-lived-well' || slug === 'nutripaw' || slug === 'harmony-sync';
  const [template, content] = await Promise.all([
    loadCaseFile('template.html'),
    customContent ? loadCaseFile(slug + '.json') : null
@@ -6315,7 +6315,7 @@ function caseTemplateContent(slug, healthCaseTemplate, content) {
  const end=healthCaseTemplate.indexOf('<div class="case_study_pagination">',range);
  let data=content;
  if(slug==='living-waters') data=livingWatersContent();
- if(slug!=='lives-lived-well'&&slug!=='nutripaw'&&slug!=='living-waters'){
+ if(!data){
    const [subtitle,about,...notes]=projectOverviews[slug], project=projects[slug];
    const source=document.querySelector('article[data-case-page="'+slug+'"] .v160-hover-image')?.src;
    const labels=[notes[0],notes[2],notes[4]];
