@@ -5821,7 +5821,27 @@ html,body.body-container{height:auto!important;min-height:0!important;overflow:h
 .case_study_pagination>a:last-child{justify-self:end}
 }
 @media(max-width:767px){.case_study_pagination{padding:22px 6vw;row-gap:22px}}
-</style><style id="case-study-media-corners">:root{--case-media-radius:10px}.health-opening-image,.health-panel,.health-panel>img,.health-panel>svg,.health-walkthrough-video{border-radius:var(--case-media-radius)!important}</style><style id="case-study-shared-style">
+</style><style id="case-study-media-corners">:root{--case-media-radius:10px}.health-opening-image,.health-panel,.health-panel>img,.health-panel>svg,.health-walkthrough-video{border-radius:var(--case-media-radius)!important}</style><style id="health-components-mobile">
+@media (max-width:767px) {
+  .health-system-overview .health-system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  .health-system-overview .health-system-grid > .health-system-column,
+  .health-system-overview .health-system-grid > .health-system-column:last-child {
+    display: contents;
+  }
+  .health-system-overview .health-system-grid .health-panel {
+    background: var(--case-panel-background, #eae7df) !important;
+    padding: clamp(7px, 2vw, 12px) !important;
+    border-radius: var(--case-media-radius, 10px);
+  }
+  .health-system-overview .health-system-grid .health-panel-title {
+    font-size: clamp(11px, 2.8vw, 15px);
+    overflow-wrap: anywhere;
+  }
+}
+</style><style id="case-study-shared-style">
 :root{--case-media-radius:10px;--case-panel-background:#eae7df;--case-panel-padding:clamp(10px,1vw,16px);--case-panel-gap:10px}
 body :is(.body-copy-small,.body-copy-large){font-size:clamp(16px,1.2vw,19px)!important;line-height:1.45!important;overflow-wrap:break-word}
 .section-copy-wrap>.caption{box-sizing:border-box;min-width:0;width:100%!important;max-width:none!important;margin:0!important;position:static!important;transform:none!important;align-self:start!important}

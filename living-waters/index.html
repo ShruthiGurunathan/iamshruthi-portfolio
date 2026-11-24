@@ -5821,7 +5821,27 @@ html,body.body-container{height:auto!important;min-height:0!important;overflow:h
 .case_study_pagination>a:last-child{justify-self:end}
 }
 @media(max-width:767px){.case_study_pagination{padding:22px 6vw;row-gap:22px}}
-</style><style id="case-study-media-corners">:root{--case-media-radius:10px}.health-opening-image,.health-panel,.health-panel>img,.health-panel>svg,.health-walkthrough-video{border-radius:var(--case-media-radius)!important}</style><style id="case-study-shared-style">
+</style><style id="case-study-media-corners">:root{--case-media-radius:10px}.health-opening-image,.health-panel,.health-panel>img,.health-panel>svg,.health-walkthrough-video{border-radius:var(--case-media-radius)!important}</style><style id="health-components-mobile">
+@media (max-width:767px) {
+  .health-system-overview .health-system-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  .health-system-overview .health-system-grid > .health-system-column,
+  .health-system-overview .health-system-grid > .health-system-column:last-child {
+    display: contents;
+  }
+  .health-system-overview .health-system-grid .health-panel {
+    background: var(--case-panel-background, #eae7df) !important;
+    padding: clamp(7px, 2vw, 12px) !important;
+    border-radius: var(--case-media-radius, 10px);
+  }
+  .health-system-overview .health-system-grid .health-panel-title {
+    font-size: clamp(11px, 2.8vw, 15px);
+    overflow-wrap: anywhere;
+  }
+}
+</style><style id="case-study-shared-style">
 :root{--case-media-radius:10px;--case-panel-background:#eae7df;--case-panel-padding:clamp(10px,1vw,16px);--case-panel-gap:10px}
 body :is(.body-copy-small,.body-copy-large){font-size:clamp(16px,1.2vw,19px)!important;line-height:1.45!important;overflow-wrap:break-word}
 .section-copy-wrap>.caption{box-sizing:border-box;min-width:0;width:100%!important;max-width:none!important;margin:0!important;position:static!important;transform:none!important;align-self:start!important}
@@ -5973,7 +5993,7 @@ body.body-container{--_theme---background:var(--paper);--_theme---text:var(--ink
      </div>
      </div>
    </section>
-   <div class="case_study_pagination"><a href="https://iamshruthi.com/nutripaw/" class="next-case-study w-inline-block" data-portfolio-case="nutripaw" aria-label="Previous case study: NutriPaw" title="Previous: NutriPaw"><div class="looping-shape copy-circle w-embed"><svg width="166" " height="166" viewbox="0 0 166 166" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <div class="case_study_pagination"><a href="https://iamshruthi.com/department-of-health/" class="next-case-study w-inline-block" data-portfolio-case="department-of-health" aria-label="Previous case study: Department of Health" title="Previous: Department of Health"><div class="looping-shape copy-circle w-embed"><svg width="166" " height="166" viewbox="0 0 166 166" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_888_12667)">
 <path d="M162.029 104.118C150.323 147.808 105.415 173.735 61.7257 162.028C18.036 150.322 -7.89119 105.414 3.81541 61.7248C15.522 18.0352 60.4293 -7.89205 104.119 3.81454C147.808 15.5212 173.736 60.4284 162.029 104.118ZM140.221 98.2746C148.701 66.6295 129.92 34.1026 98.2753 25.6233C66.6301 17.144 34.1026 35.9231 25.6233 67.5682C17.144 99.2133 35.9239 131.741 67.5691 140.22C99.2142 148.7 131.742 129.92 140.221 98.2746Z" stroke="currentColor" stroke-width="0.623363"></path>
 <path d="M78.7509 147.489C79.5427 147.554 80.066 147.858 80.3208 148.401C80.5745 148.957 80.5806 149.649 80.3391 150.476L78.3602 157.134L80.9584 157.345L80.7246 157.924L78.1821 157.718L77.724 159.679L76.3321 159.566L76.9201 157.615L72.8929 157.288L73.1267 156.709L77.0982 157.032L79.0771 150.374C79.2471 149.815 79.26 149.349 79.1159 148.976C78.9584 148.615 78.6322 148.414 78.1373 148.374C77.7414 148.341 77.3808 148.412 77.0554 148.585C76.729 148.77 76.4301 149.001 76.1585 149.278C75.8736 149.566 75.6149 149.838 75.3825 150.093L74.9305 150.598L74.599 150.309L75.0525 149.786C75.437 149.344 75.8124 148.938 76.1786 148.569C76.5448 148.201 76.9354 147.915 77.3504 147.712C77.752 147.52 78.2189 147.446 78.7509 147.489Z" fill="currentColor"></path>
