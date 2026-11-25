@@ -36,13 +36,15 @@ h1, h2, h3, p { margin: 0; }
 .eyebrow { font: italic 400 24px/1.1 &quot;Xanh Mono&quot;,Georgia,serif; margin-bottom: 10px; }
 .body-copy-small, .body-copy-large { font-size:clamp(16px,1.2vw,19px);font-weight:300;line-height:1.45;letter-spacing:.05em;overflow-wrap:break-word; }
 .content-section { display: grid; gap: 46px; padding: 70px 0; }
-.section-copy-wrap { display: grid; grid-template-columns: 1fr 1fr; align-items:start;gap:24px; }
+.section-copy-wrap { display: grid; grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:24px; }
+@media (min-width:768px) {.harmony-system-heading{align-items:center}}
+.section-copy-wrap .caption{min-width:0;text-align:left;}
 .display-medium { font-size:5.5vw;font-weight:400;line-height:.76;white-space:nowrap; }
 .display-medium-alt_wrap {font-size:5.5vw;padding-right:.35em;letter-spacing:-.08em;line-height:.8;}
 .health-small-title { font-size:28px; }
 .health-panel { min-width: 0; }
 .health-panel-title { display:table;align-self:flex-start;max-width:100%;padding:8px 11px;border-radius:3px;background:#fff;color:var(--ink);font-family:&quot;Neue Haas Grotesk Display&quot;,Arial,sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;line-height:1.25;letter-spacing:0; }
-.harmony-system .health-panel-title {padding:0;background:transparent;}
+
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen { padding:clamp(10px,1vw,16px);background:#eae7df;border-radius:var(--case-media-radius); }
 .harmony-screen .harmony-media { border-radius:var(--case-media-radius); }
@@ -206,7 +208,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
       &lt;/div&gt;
     &lt;/section&gt;&lt;section class=&quot;content-align-left&quot;&gt;
       &lt;div class=&quot;content-section harmony-section&quot;&gt;
-        &lt;div data-wf--section-header--variant=&quot;horizontal&quot; class=&quot;section-copy-wrap health-aligned-userflows&quot;&gt;
+        &lt;div data-wf--section-header--variant=&quot;horizontal&quot; class=&quot;section-copy-wrap harmony-system-heading&quot;&gt;
           &lt;h2 class=&quot;display-medium&quot;&gt;&lt;span class=&quot;display-medium-alt_wrap&quot;&gt;03&lt;/span&gt;design system&lt;/h2&gt;
           &lt;div class=&quot;caption&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;The tablet’s component board brings together the controls for joining a room, setting the vibe and passing the mic.&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
