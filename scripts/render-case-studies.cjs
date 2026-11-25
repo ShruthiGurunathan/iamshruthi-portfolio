@@ -28,22 +28,35 @@ const {projects, projectDocument} = vm.runInNewContext(
 const frameDirectory = path.join(root, '_includes', 'case-frames');
 fs.mkdirSync(frameDirectory, {recursive: true});
 
+function harmonyDocument(project, content, title) {
+  const portfolio = read('assets/case-studies/harmony-wrapper.html');
+  const slugs = Object.keys(projects);
+  const index = slugs.indexOf('harmony-sync');
+  const linkedCase = (slug, label) => slug
+    ? `<a href="${new URL(slug + '/', baseURI)}" target="_top"><small>${label}</small>${projects[slug].title}</a>`
+    : '';
+  const fields = {
+    TITLE: title,
+    HERO: `<h1><span>${project.number}</span>${project.title}</h1>
+      <ul class="discipline-tags">${project.tags.map(tag => `<li>${tag}</li>`).join('')}</ul>
+      ${content.subtitle}`,
+    COVER: content.hero,
+    ABOUT: content.about,
+    BODY: content.body,
+    PAGINATION: linkedCase(slugs[index - 1], '← Previous case study')
+      + linkedCase(slugs[index + 1], 'Next case study →'),
+  };
+  return portfolio.replace(/%%([A-Z]+)%%/g, (_match, field) => fields[field]);
+}
+
 for (const [slug, project] of Object.entries(projects)) {
   const custom = slug === 'lives-lived-well' || slug === 'nutripaw' || slug === 'harmony-sync';
   const content = custom ? JSON.parse(media(read('assets/case-studies/' + slug + '.json'))) : null;
-  let html = projectDocument(project, template, content)
-    .replace(/<title>[\s\S]*?<\/title>/i, '<title>' + project.title + ' — Shruthi Gurunathan</title>');
-  if (slug === 'harmony-sync') {
-    const title = project.title + ' — Shruthi Gurunathan';
-    const inheritedBase = html.match(/<base href="([^"]+)">/)?.[1];
-    if (inheritedBase && inheritedBase !== baseURI) {
-      html = html.replaceAll(inheritedBase + '#work', baseURI + '#top')
-        .replaceAll(inheritedBase, baseURI);
-    }
-    html = html.replace(/ data-wf-domain="[^"]+"/, '')
-      .replace(/<meta content="[^"]*" ((?:property="og:title"|name="twitter:title"))>/g,
-        (_match, attribute) => '<meta content="' + title + '" ' + attribute + '>');
-  }
+  const title = project.title + ' — Shruthi Gurunathan';
+  const html = slug === 'harmony-sync'
+    ? harmonyDocument(project, content, title)
+    : projectDocument(project, template, content)
+      .replace(/<title>[\s\S]*?<\/title>/i, '<title>' + title + '</title>');
   const srcdoc = html.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   fs.writeFileSync(path.join(frameDirectory, slug + '.html'), srcdoc.replace(/[ \t]+$/gm, ''));
   const start = html.indexOf('<section class="case-study-hero">');
