@@ -48,7 +48,8 @@ h1, h2, h3, p { margin: 0; }
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen { padding:clamp(10px,1vw,16px);background:#eae7df;border-radius:var(--case-media-radius); }
 .harmony-screen .harmony-media { border-radius:var(--case-media-radius); }
-.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) -6vw 0;padding:clamp(16px,1.35vw,29px) 5.6vw;border-block:1px solid var(--ink);font:14px/20px Arial,sans-serif; }
+.page-wrap>section:has(+.case_study_pagination) .content-section{padding-bottom:0;}
+.case_study_pagination {width:calc(100% / .88);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) calc((100% - 100% / .88) / 2) 0;padding:clamp(16px,1.35vw,29px) 5.6vw;border-block:1px solid var(--ink);font:14px/20px Arial,sans-serif; }
 .case_study_pagination .next-case-study {position:relative;display:flex;align-items:center;justify-content:center;justify-self:start;color:var(--ink);}
 .case_study_pagination .copy-circle svg {width:166px;max-width:20vw;height:auto;}
 .case_study_pagination .pagination_arrow_svg {position:absolute;width:5vw;}
