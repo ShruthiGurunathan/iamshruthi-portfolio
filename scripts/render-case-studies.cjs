@@ -30,12 +30,21 @@ fs.mkdirSync(frameDirectory, {recursive: true});
 
 function harmonyDocument(project, content, title) {
   const portfolio = read('assets/case-studies/harmony-wrapper.html');
-  const slugs = Object.keys(projects);
+  const slugs = Object.keys(projects).filter(slug => slug !== 'nomad-nook');
   const index = slugs.indexOf('harmony-sync');
   const linkedCase = (slug, label) => slug
-    ? `<a href="${new URL(slug + '/', baseURI)}" target="_top"><small>${label}</small>${projects[slug].title}</a>`
+    ? `<a href="${new URL(slug + '/', baseURI)}" target="_top" data-portfolio-case="${slug}"><small>${label}</small>${projects[slug].title}</a>`
     : '';
+  const sharedScript = id => {
+    const start = template.indexOf('<script id="' + id + '">');
+    if (start === -1) throw new Error('Missing case study behavior: ' + id);
+    return template.slice(start, template.indexOf('</script>', start) + '</script>'.length);
+  };
+  const labels = content.labels.map((label, i) =>
+    `<span class="section-marquee-item"><i>0${i + 1}</i> ${label} <span>⟶</span></span>`).join('');
   const fields = {
+    MOTION: ['forward-portfolio-pointer', 'portfolio-case-pagination', 'health-parent-scroll-motion'].map(sharedScript).join('\n'),
+    MARQUEE: labels,
     TITLE: title,
     HERO: `<h1><span>${project.number}</span>${project.title}</h1>
       <ul class="discipline-tags">${project.tags.map(tag => `<li>${tag}</li>`).join('')}</ul>
@@ -44,7 +53,8 @@ function harmonyDocument(project, content, title) {
     ABOUT: content.about,
     BODY: content.body,
     PAGINATION: linkedCase(slugs[index - 1], '← Previous case study')
-      + linkedCase(slugs[index + 1], 'Next case study →'),
+      + '<a class="case-home" href="' + baseURI + '" target="_top">take me home</a>'
+      + linkedCase(slugs[(index + 1) % slugs.length], 'Next case study →'),
   };
   return portfolio.replace(/%%([A-Z]+)%%/g, (_match, field) => fields[field]);
 }

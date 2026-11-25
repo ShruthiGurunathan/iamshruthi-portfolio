@@ -6,6 +6,9 @@
 &lt;title&gt;Harmony Sync — Shruthi Gurunathan&lt;/title&gt;
 &lt;style&gt;
 @font-face { font-family: &quot;Xanh Mono&quot;; src: url(&quot;https://iamshruthi.com/assets/media/1e6182c74b6c0149277d.ttf&quot;) format(&quot;truetype&quot;); font-display: swap; }
+@font-face {font-family:&quot;Xanh Mono&quot;;src:url(&quot;https://iamshruthi.com/assets/media/3aa6b644deb964b908d5.ttf&quot;);font-style:italic;font-display:swap}
+@font-face {font-family:&quot;Neue Haas Grotesk Display&quot;;src:url(&quot;https://iamshruthi.com/assets/media/dd9f9d98d52e87a2012e.otf&quot;);font-weight:400;font-display:swap}
+@font-face {font-family:&quot;Neue Haas Grotesk Display&quot;;src:url(&quot;https://iamshruthi.com/assets/media/c4566f8e64a2744a99dd.otf&quot;);font-weight:700;font-display:swap}
 :root {
   --paper: #f2efe7;
   --ink: #9f491f;
@@ -15,9 +18,9 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 &quot;Neue Haas Grotesk Display&quot;, Arial, sans-serif; }
-.page-wrap { width: min(1180px, 100% - clamp(32px, 12vw, 152px)); margin: auto; padding: 0 0 64px; }
+.page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
-.case-study-hero { padding: clamp(96px, 20svh, 190px) 0 clamp(36px, 10svh, 100px); }
+.case-study-hero { padding: calc(var(--llw-vh, 1vh) * 30) 0 calc(var(--llw-vh, 1vh) * 20); }
 .case-study-hero h1 { display: flex; align-items: baseline; gap: .25em; font-size: clamp(42px, 8vw, 112px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
 .case-study-hero h1 span, .display-medium-alt_wrap, .health-small-title { font-family: &quot;Xanh Mono&quot;, Georgia, serif; font-style: italic; font-weight: 400; }
 .case-study-hero h1 span { font-size: .52em; }
@@ -25,7 +28,8 @@ h1, h2, h3, p { margin: 0; }
 .discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding: 3px 13px; font: italic 14px &quot;Xanh Mono&quot;, Georgia, serif; }
 .subtitle { max-width: 38ch; font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; }
 .casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin: 0 0 clamp(22px, 5vw, 64px) calc((100% - 100vw) / 2); }
-.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); margin: 0 0 56px; }
+.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); transform: scale(.6); transform-origin: center; margin: 0 0 56px; }
+.full-width-content { margin-inline: -6vw; }
 .copy-block { margin-left: auto; max-width: 560px; }
 .eyebrow { font: italic 24px Georgia, serif; margin-bottom: 10px; }
 .body-copy-large { font-size: clamp(18px, 2vw, 24px); }
@@ -38,13 +42,29 @@ h1, h2, h3, p { margin: 0; }
 .health-panel-title { margin-bottom: 8px; font-weight: 700; font-size: 15px; }
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen a { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
-.case_study_pagination { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-top: 40px; }
+.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;margin-top:40px; }
 .case_study_pagination a { font-size: 21px; text-underline-offset: 4px; }
 .case_study_pagination small { display: block; font-size: 14px; }
 a { color: inherit; }
+.case_study_pagination a:last-child { justify-self:end;text-align:right }
+.case_study_pagination .case-home { border:1px solid currentColor;border-radius:50%;padding:16px 22px;font:italic 16px &quot;Xanh Mono&quot;,serif;text-decoration:none }
+.case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}
+.section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0;border-block:1px solid var(--line)}
+.section-marquee-track {display:flex;width:max-content;animation:section-marquee 25s linear infinite}
+.section-marquee-track&gt;div {flex:none;white-space:nowrap}
+.section-marquee-item {display:inline-block;padding-inline:24px;font-size:clamp(25px,4vw,56px)}
+.section-marquee-item i {font-family:&quot;Xanh Mono&quot;,serif}
+.section-marquee-item span {margin-left:.6em}
+@keyframes section-marquee {to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce) {.section-marquee-track{animation:none;width:auto}.section-marquee-track&gt;div{white-space:normal}.section-marquee-track&gt;div+div{display:none}.health-opening-image{transform:none!important}}
+@media (hover:hover) and (pointer:fine) {html,body,body * {cursor:none!important}}
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 @media (max-width: 767px) {
   .section-copy-wrap { grid-template-columns: 1fr; }
+  .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
+  .casestudy_arrow {width:80vw}
+  .case_study_pagination {grid-template-columns:1fr 1fr}
+  .case_study_pagination .case-home {grid-row:2;grid-column:1/-1;justify-self:center}
   .discipline-tags { margin: 22px 0 28px; }
   .health-opening-image { margin-bottom: 32px; }
 }
@@ -59,8 +79,9 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   &lt;path d=&quot;M0 .5h686a33 33 0 0 1 33 33V120&quot; stroke=&quot;currentColor&quot;/&gt;
   &lt;path d=&quot;m716 119 3 5 3-5z&quot; fill=&quot;currentColor&quot;/&gt;
 &lt;/svg&gt;
-&lt;img class=&quot;health-opening-image&quot; src=&quot;https://iamshruthi.com/assets/media/f7838007f7995ab994df.webp&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Harmony Sync cover showing the portrait karaoke tablet interface&quot;&gt;
+&lt;div class=&quot;full-width-content&quot;&gt;&lt;img class=&quot;health-opening-image&quot; src=&quot;https://iamshruthi.com/assets/media/f7838007f7995ab994df.webp&quot; width=&quot;1536&quot; height=&quot;1024&quot; alt=&quot;Harmony Sync cover showing the portrait karaoke tablet interface&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;content-align-right&quot;&gt;&lt;div class=&quot;copy-block&quot;&gt;&lt;h3 class=&quot;eyebrow&quot;&gt;about&lt;/h3&gt;&lt;p class=&quot;body-copy-large&quot;&gt;Harmony Sync is a family-friendly private karaoke concept designed across a phone, room tablet and shared display. I designed the tablet experience in our team project, from wireframes and room controls to the final prototype and heuristic evaluation.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;section-marquee&quot; aria-hidden=&quot;true&quot;&gt;&lt;div class=&quot;section-marquee-track&quot;&gt;&lt;div&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;01&lt;/i&gt; userflows &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;02&lt;/i&gt; wireframes &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;03&lt;/i&gt; design system &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;01&lt;/i&gt; userflows &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;02&lt;/i&gt; wireframes &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;section-marquee-item&quot;&gt;&lt;i&gt;03&lt;/i&gt; design system &lt;span&gt;⟶&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;style&gt;
 .harmony-screens,.harmony-system{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--case-panel-gap,16px);width:100%;align-items:start}
 .harmony-outcomes,.harmony-system{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -78,8 +99,11 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .harmony-system .harmony-component{display:grid;grid-template-rows:subgrid;grid-row:span 2;row-gap:8px;min-width:0}
 .harmony-system .harmony-component a{display:grid;place-items:center;grid-template:minmax(0,1fr)/minmax(0,1fr);height:clamp(200px,25vw,320px);padding:clamp(12px,2vw,24px);background:#fdfdfd;border-radius:var(--case-media-radius,10px);box-sizing:border-box}
 .harmony-system .harmony-component img{width:100%;height:100%;object-fit:contain}
+.harmony-system .harmony-component-wide{grid-column:1/-1}
+.harmony-system .harmony-component-wide a{height:auto;min-height:0}
+.harmony-system .harmony-component-wide img{height:auto}
 .harmony-system .harmony-component a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-@media(max-width:767px){.harmony-screens{grid-template-columns:repeat(2,minmax(0,1fr))}.harmony-system{grid-template-columns:1fr}.harmony-system .harmony-component a{height:clamp(160px,55vw,260px)}}
+@media(max-width:767px){.harmony-screens{grid-template-columns:repeat(2,minmax(0,1fr))}.harmony-system{grid-template-columns:1fr}.harmony-system .harmony-component:not(.harmony-component-wide) a{height:clamp(160px,55vw,260px)}}
 &lt;/style&gt;&lt;section class=&quot;content-align-left&quot;&gt;
       &lt;div class=&quot;content-section harmony-section&quot;&gt;
         &lt;div data-wf--section-header--variant=&quot;horizontal&quot; class=&quot;section-copy-wrap health-aligned-userflows&quot;&gt;
@@ -182,25 +206,25 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
     &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-feedback.webp&quot; width=&quot;620&quot; height=&quot;604&quot; alt=&quot;Celebration illustration and circular feedback treatments&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
   &lt;/a&gt;
 &lt;/figure&gt;
-&lt;figure class=&quot;health-panel harmony-component&quot;&gt;
+&lt;figure class=&quot;health-panel harmony-component harmony-component-wide&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Reaction and continue buttons&lt;/figcaption&gt;
   &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-actions.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Reaction and continue buttons&quot;&gt;
     &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-actions.webp&quot; width=&quot;880&quot; height=&quot;368&quot; alt=&quot;Cheer, Applause and Continue with interaction states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
   &lt;/a&gt;
 &lt;/figure&gt;
-&lt;figure class=&quot;health-panel harmony-component&quot;&gt;
+&lt;figure class=&quot;health-panel harmony-component harmony-component-wide&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Primary button states&lt;/figcaption&gt;
   &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-buttons.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Primary button states&quot;&gt;
     &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-buttons.webp&quot; width=&quot;1107&quot; height=&quot;330&quot; alt=&quot;Tablet action buttons at several sizes and states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
   &lt;/a&gt;
 &lt;/figure&gt;
-&lt;figure class=&quot;health-panel harmony-component&quot;&gt;
+&lt;figure class=&quot;health-panel harmony-component harmony-component-wide&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Icon states&lt;/figcaption&gt;
   &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-icon-states.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Icon states&quot;&gt;
     &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-icon-states.webp&quot; width=&quot;805&quot; height=&quot;220&quot; alt=&quot;Tablet icon controls in default, hover and focus states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
   &lt;/a&gt;
 &lt;/figure&gt;
-&lt;figure class=&quot;health-panel harmony-component&quot;&gt;
+&lt;figure class=&quot;health-panel harmony-component harmony-component-wide&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Effects dropdown&lt;/figcaption&gt;
   &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-dropdown.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Effects dropdown&quot;&gt;
     &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-dropdown.webp&quot; width=&quot;1185&quot; height=&quot;275&quot; alt=&quot;Echo dropdown open and closed states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
@@ -237,7 +261,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;What the system carries across screens&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Vibe cards, countdowns and labelled audio controls give each stage a recognisable structure. Clearer primary and secondary actions help people distinguish the next step from optional controls.&lt;/p&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/section&gt;
-&lt;div class=&quot;case_study_pagination&quot;&gt;&lt;a href=&quot;https://iamshruthi.com/lives-lived-well/&quot; target=&quot;_top&quot;&gt;&lt;small&gt;← Previous case study&lt;/small&gt;Lives Lived Well&lt;/a&gt;&lt;a href=&quot;https://iamshruthi.com/trollect/&quot; target=&quot;_top&quot;&gt;&lt;small&gt;Next case study →&lt;/small&gt;Trollect&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;case_study_pagination&quot;&gt;&lt;a href=&quot;https://iamshruthi.com/lives-lived-well/&quot; target=&quot;_top&quot; data-portfolio-case=&quot;lives-lived-well&quot;&gt;&lt;small&gt;← Previous case study&lt;/small&gt;Lives Lived Well&lt;/a&gt;&lt;a class=&quot;case-home&quot; href=&quot;https://iamshruthi.com/&quot; target=&quot;_top&quot;&gt;take me home&lt;/a&gt;&lt;a href=&quot;https://iamshruthi.com/trollect/&quot; target=&quot;_top&quot; data-portfolio-case=&quot;trollect&quot;&gt;&lt;small&gt;Next case study →&lt;/small&gt;Trollect&lt;/a&gt;&lt;/div&gt;
 &lt;/main&gt;
 &lt;script&gt;
 const page = document.querySelector('.page-wrap');
@@ -245,6 +269,20 @@ const portfolioOrigin = 'https://iamshruthi.com';
 new ResizeObserver(() =&gt; {
   parent.postMessage({type: 'llw-document-height', height: Math.ceil(page.getBoundingClientRect().height)}, portfolioOrigin);
 }).observe(page);
+&lt;/script&gt;
+&lt;script id=&quot;forward-portfolio-pointer&quot;&gt;
+(()=&gt;{if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+const interactive='a,button,[role=&quot;button&quot;],.w-lightbox';
+function send(e){parent.postMessage({type:'llw-portfolio-pointer',event:e.type,x:e.clientX,y:e.clientY,buttons:e.buttons,button:e.button,interactive:!!e.target.closest?.(interactive),circular:!!e.target.closest?.('img,figure,.w-lightbox')},'*');}
+for(const type of ['mousemove','mouseover','mousedown','mouseup'])document.addEventListener(type,send,{passive:true});})();
+&lt;/script&gt;
+&lt;script id=&quot;portfolio-case-pagination&quot;&gt;
+document.addEventListener('click',function(e){const a=e.target.closest('a[data-portfolio-case]');if(!a)return;e.preventDefault();e.stopImmediatePropagation();parent.postMessage({type:'llw-open-case',slug:a.dataset.portfolioCase},'*');},true);
+&lt;/script&gt;
+&lt;script id=&quot;health-parent-scroll-motion&quot;&gt;
+(()=&gt;{const image=document.querySelector('.health-opening-image');if(!image)return;const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let scheduled=false;
+function draw(){scheduled=false;let top=image.parentElement.getBoundingClientRect().top,vh=innerHeight;try{if(frameElement){top+=frameElement.getBoundingClientRect().top;vh=parent.innerHeight;}}catch(_){}const p=Math.max(0,Math.min(1,(vh-top)/(vh*.85)));image.style.transform='scale('+(reduced?1:.6+.4*p)+')';}
+function update(){if(!scheduled){scheduled=true;requestAnimationFrame(draw)}}addEventListener('scroll',update,{passive:true});addEventListener('resize',update);try{parent.addEventListener('scroll',update,{passive:true});parent.addEventListener('resize',update);}catch(_){}image.addEventListener('load',update);draw();})();
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;

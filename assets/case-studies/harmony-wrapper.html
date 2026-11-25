@@ -6,6 +6,9 @@
 <title>%%TITLE%%</title>
 <style>
 @font-face { font-family: "Xanh Mono"; src: url("https://iamshruthi.com/assets/media/1e6182c74b6c0149277d.ttf") format("truetype"); font-display: swap; }
+@font-face {font-family:"Xanh Mono";src:url("https://iamshruthi.com/assets/media/3aa6b644deb964b908d5.ttf");font-style:italic;font-display:swap}
+@font-face {font-family:"Neue Haas Grotesk Display";src:url("https://iamshruthi.com/assets/media/dd9f9d98d52e87a2012e.otf");font-weight:400;font-display:swap}
+@font-face {font-family:"Neue Haas Grotesk Display";src:url("https://iamshruthi.com/assets/media/c4566f8e64a2744a99dd.otf");font-weight:700;font-display:swap}
 :root {
   --paper: #f2efe7;
   --ink: #9f491f;
@@ -15,9 +18,9 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 "Neue Haas Grotesk Display", Arial, sans-serif; }
-.page-wrap { width: min(1180px, 100% - clamp(32px, 12vw, 152px)); margin: auto; padding: 0 0 64px; }
+.page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
-.case-study-hero { padding: clamp(96px, 20svh, 190px) 0 clamp(36px, 10svh, 100px); }
+.case-study-hero { padding: calc(var(--llw-vh, 1vh) * 30) 0 calc(var(--llw-vh, 1vh) * 20); }
 .case-study-hero h1 { display: flex; align-items: baseline; gap: .25em; font-size: clamp(42px, 8vw, 112px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
 .case-study-hero h1 span, .display-medium-alt_wrap, .health-small-title { font-family: "Xanh Mono", Georgia, serif; font-style: italic; font-weight: 400; }
 .case-study-hero h1 span { font-size: .52em; }
@@ -25,7 +28,8 @@ h1, h2, h3, p { margin: 0; }
 .discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding: 3px 13px; font: italic 14px "Xanh Mono", Georgia, serif; }
 .subtitle { max-width: 38ch; font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; }
 .casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin: 0 0 clamp(22px, 5vw, 64px) calc((100% - 100vw) / 2); }
-.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); margin: 0 0 56px; }
+.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); transform: scale(.6); transform-origin: center; margin: 0 0 56px; }
+.full-width-content { margin-inline: -6vw; }
 .copy-block { margin-left: auto; max-width: 560px; }
 .eyebrow { font: italic 24px Georgia, serif; margin-bottom: 10px; }
 .body-copy-large { font-size: clamp(18px, 2vw, 24px); }
@@ -38,13 +42,29 @@ h1, h2, h3, p { margin: 0; }
 .health-panel-title { margin-bottom: 8px; font-weight: 700; font-size: 15px; }
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen a { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
-.case_study_pagination { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-top: 40px; }
+.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;margin-top:40px; }
 .case_study_pagination a { font-size: 21px; text-underline-offset: 4px; }
 .case_study_pagination small { display: block; font-size: 14px; }
 a { color: inherit; }
+.case_study_pagination a:last-child { justify-self:end;text-align:right }
+.case_study_pagination .case-home { border:1px solid currentColor;border-radius:50%;padding:16px 22px;font:italic 16px "Xanh Mono",serif;text-decoration:none }
+.case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}
+.section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0;border-block:1px solid var(--line)}
+.section-marquee-track {display:flex;width:max-content;animation:section-marquee 25s linear infinite}
+.section-marquee-track>div {flex:none;white-space:nowrap}
+.section-marquee-item {display:inline-block;padding-inline:24px;font-size:clamp(25px,4vw,56px)}
+.section-marquee-item i {font-family:"Xanh Mono",serif}
+.section-marquee-item span {margin-left:.6em}
+@keyframes section-marquee {to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce) {.section-marquee-track{animation:none;width:auto}.section-marquee-track>div{white-space:normal}.section-marquee-track>div+div{display:none}.health-opening-image{transform:none!important}}
+@media (hover:hover) and (pointer:fine) {html,body,body * {cursor:none!important}}
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 @media (max-width: 767px) {
   .section-copy-wrap { grid-template-columns: 1fr; }
+  .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
+  .casestudy_arrow {width:80vw}
+  .case_study_pagination {grid-template-columns:1fr 1fr}
+  .case_study_pagination .case-home {grid-row:2;grid-column:1/-1;justify-self:center}
   .discipline-tags { margin: 22px 0 28px; }
   .health-opening-image { margin-bottom: 32px; }
 }
@@ -57,8 +77,9 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   <path d="M0 .5h686a33 33 0 0 1 33 33V120" stroke="currentColor"/>
   <path d="m716 119 3 5 3-5z" fill="currentColor"/>
 </svg>
-%%COVER%%
+<div class="full-width-content">%%COVER%%</div>
 %%ABOUT%%
+<div class="section-marquee" aria-hidden="true"><div class="section-marquee-track"><div>%%MARQUEE%%</div><div>%%MARQUEE%%</div></div></div>
 %%BODY%%
 <div class="case_study_pagination">%%PAGINATION%%</div>
 </main>
@@ -69,5 +90,6 @@ new ResizeObserver(() => {
   parent.postMessage({type: 'llw-document-height', height: Math.ceil(page.getBoundingClientRect().height)}, portfolioOrigin);
 }).observe(page);
 </script>
+%%MOTION%%
 </body>
 </html>
