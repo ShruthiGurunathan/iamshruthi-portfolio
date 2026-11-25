@@ -1,0 +1,21 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const frame = document.getElementById('llw-exact-page');
+  const content = document.getElementById('living-waters-content');
+  if (!frame || !content) return;
+
+  function renderProposal() {
+    const page = frame.contentDocument;
+    const pagination = page?.querySelector('.case_study_pagination');
+    if (!pagination || page.querySelector('[data-living-waters-revised]')) return;
+    const sections = [...(pagination?.parentElement.querySelectorAll(':scope > section:has(.water-content)') || [])];
+    if (!sections.length) return;
+
+    const revised = page.importNode(content, true);
+    sections[0].before(...revised.children);
+    sections.forEach(section => section.remove());
+  }
+  frame.addEventListener('load', renderProposal);
+  renderProposal();
+}, { once: true });
+</script>
