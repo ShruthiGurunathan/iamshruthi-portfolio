@@ -1,0 +1,80 @@
+<template id="case-study-typography">
+  <style>
+    @font-face {
+      font-family: "Neue Haas Grotesk Display";
+      src: url("/assets/media/0318836fa1bd7a019f14.otf") format("opentype");
+      font-weight: 300;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Neue Haas Grotesk Display";
+      src: url("/assets/media/dd9f9d98d52e87a2012e.otf") format("opentype");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Neue Haas Grotesk Display";
+      src: url("/assets/media/c4566f8e64a2744a99dd.otf") format("opentype");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    body .page-wrap {
+      --case-type: "Neue Haas Grotesk Display", Arial, sans-serif;
+      --case-title: clamp(42px, 8vw, 130px);
+      --case-section-title: clamp(28px, 4.5vw, 88px);
+      --case-subheading: clamp(24px, 3vw, 36px);
+      --case-body: clamp(16px, 1.2vw, 19px);
+    }
+    body .page-wrap .case-study-hero h1 {
+      font-family: var(--case-type) !important;
+      font-size: var(--case-title) !important;
+      font-weight: 400 !important;
+      line-height: 1 !important;
+      overflow-wrap: anywhere;
+    }
+    body .page-wrap .case-study-hero h1 :is(.display-large-alt_wrap, span) {
+      font-size: 1em !important;
+    }
+    body .page-wrap .case-study-hero .subtitle {
+      font: 300 clamp(20px, 2.1vw, 28px)/1.25 var(--case-type) !important;
+    }
+    body .page-wrap .section-copy-wrap .display-medium {
+      font: 400 var(--case-section-title)/1.05 var(--case-type) !important;
+      white-space: normal !important;
+    }
+    body .page-wrap .section-copy-wrap .display-medium .display-medium-alt_wrap {
+      font-size: 1em !important;
+    }
+    body .page-wrap :is(.subheading, .health-small-title, .water-lead, .harmony-detail h3, .content-section h3.eyebrow) {
+      font: 700 var(--case-subheading)/1.12 var(--case-type) !important;
+      letter-spacing: normal !important;
+      margin-block: 0 0.45em !important;
+    }
+    body .page-wrap :is(.body-copy-small, .body-copy-large, .caption > p, .harmony-detail p) {
+      font: 300 var(--case-body)/1.45 var(--case-type) !important;
+      letter-spacing: normal !important;
+    }
+    body .page-wrap .health-panel-title {
+      font: 700 clamp(13px, 1vw, 15px)/1.25 var(--case-type) !important;
+    }
+  </style>
+</template>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const frame = document.getElementById('llw-exact-page');
+  const typography = document.getElementById('case-study-typography');
+  if (!frame || !typography) return;
+
+  function applyTypography() {
+    const page = frame.contentDocument;
+    if (!page?.head || !page.querySelector('.page-wrap') || page.getElementById('shared-case-type')) return;
+    const style = page.importNode(typography.content.querySelector('style'), true);
+    style.id = 'shared-case-type';
+    page.head.append(style);
+  }
+
+  frame.addEventListener('load', applyTypography);
+  applyTypography();
+}, { once: true });
+</script>
