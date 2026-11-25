@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%%TITLE%%</title>
 <style>
+@font-face { font-family: "Xanh Mono"; src: url("https://iamshruthi.com/assets/media/1e6182c74b6c0149277d.ttf") format("truetype"); font-display: swap; }
 :root {
   --paper: #f2efe7;
   --ink: #9f491f;
@@ -14,15 +15,17 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 "Neue Haas Grotesk Display", Arial, sans-serif; }
-.page-wrap { width: min(1180px, 100% - clamp(32px, 12vw, 152px)); margin: auto; padding: clamp(32px, 7vw, 100px) 0 64px; }
+.page-wrap { width: min(1180px, 100% - clamp(32px, 12vw, 152px)); margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
-.case-study-hero h1 { display: flex; align-items: baseline; gap: .25em; font-size: clamp(42px, 8vw, 112px); font-weight: 500; line-height: 1.04; letter-spacing: -.045em; }
+.case-study-hero { padding: clamp(96px, 20svh, 190px) 0 clamp(36px, 10svh, 100px); }
+.case-study-hero h1 { display: flex; align-items: baseline; gap: .25em; font-size: clamp(42px, 8vw, 112px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
 .case-study-hero h1 span, .display-medium-alt_wrap, .health-small-title { font-family: "Xanh Mono", Georgia, serif; font-style: italic; font-weight: 400; }
 .case-study-hero h1 span { font-size: .52em; }
-.discipline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 34px; padding: 0; list-style: none; }
-.discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding: 3px 13px; font-size: 14px; }
-.subtitle { max-width: 38ch; font-weight: 400; font-size: clamp(23px, 3vw, 38px); line-height: 1.12; }
-.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); margin: 34px 0; }
+.discipline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 40px 0 48px; padding: 0; list-style: none; }
+.discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding: 3px 13px; font: italic 14px "Xanh Mono", Georgia, serif; }
+.subtitle { max-width: 38ch; font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; }
+.casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin: 0 0 clamp(22px, 5vw, 64px) calc((100% - 100vw) / 2); }
+.health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); margin: 0 0 56px; }
 .copy-block { margin-left: auto; max-width: 560px; }
 .eyebrow { font: italic 24px Georgia, serif; margin-bottom: 10px; }
 .body-copy-large { font-size: clamp(18px, 2vw, 24px); }
@@ -40,12 +43,20 @@ h1, h2, h3, p { margin: 0; }
 .case_study_pagination small { display: block; font-size: 14px; }
 a { color: inherit; }
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
-@media (max-width: 767px) { .section-copy-wrap { grid-template-columns: 1fr; } }
+@media (max-width: 767px) {
+  .section-copy-wrap { grid-template-columns: 1fr; }
+  .discipline-tags { margin: 22px 0 28px; }
+  .health-opening-image { margin-bottom: 32px; }
+}
 </style>
 </head>
 <body>
 <main class="page-wrap">
 <section class="case-study-hero">%%HERO%%</section>
+<svg class="casestudy_arrow" viewBox="0 0 722 124" fill="none" aria-hidden="true" focusable="false">
+  <path d="M0 .5h686a33 33 0 0 1 33 33V120" stroke="currentColor"/>
+  <path d="m716 119 3 5 3-5z" fill="currentColor"/>
+</svg>
 %%COVER%%
 %%ABOUT%%
 %%BODY%%
