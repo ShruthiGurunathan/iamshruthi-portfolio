@@ -18,6 +18,7 @@
   --case-panel-gap: 20px;
 }
 * { box-sizing: border-box; }
+html, body {width:100%;max-width:100%;overflow-x:clip;}
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 "Neue Haas Grotesk Display", Arial, sans-serif; }
 .page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
@@ -40,16 +41,21 @@ h1, h2, h3, p { margin: 0; }
 .display-medium-alt_wrap {font-size:5.5vw;padding-right:.35em;letter-spacing:-.08em;line-height:.8;}
 .health-small-title { font-size:28px; }
 .health-panel { min-width: 0; }
-.health-panel-title { display:table;align-self:flex-start;max-width:100%;padding:8px 11px;border-radius:3px;background:var(--paper);color:var(--ink);font-family:"Neue Haas Grotesk Display",Arial,sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;line-height:1.25;letter-spacing:0; }
+.health-panel-title { display:table;align-self:flex-start;max-width:100%;padding:8px 11px;border-radius:3px;background:#fff;color:var(--ink);font-family:"Neue Haas Grotesk Display",Arial,sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;line-height:1.25;letter-spacing:0; }
 .harmony-system .health-panel-title {padding:0;background:transparent;}
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
-.harmony-screen .harmony-media { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
+.harmony-screen { padding:clamp(10px,1vw,16px);background:#eae7df;border-radius:var(--case-media-radius); }
+.harmony-screen .harmony-media { border-radius:var(--case-media-radius); }
 .case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) -6vw 0;padding:clamp(16px,1.35vw,29px) 5.6vw;font:14px/20px Arial,sans-serif; }
-.case_study_pagination .next-case-study {display:flex;flex-direction:column;align-items:flex-start;justify-self:start;gap:4px;text-decoration:none;font:inherit;}
-.case_study_pagination .next-case-study:is(:hover,:focus-visible){text-decoration:underline;text-underline-offset:4px;}
+.case_study_pagination .next-case-study {position:relative;display:flex;align-items:center;justify-content:center;justify-self:start;color:var(--ink);}
+.case_study_pagination .copy-circle svg {display:block;width:clamp(66px,12.3vw,166px);height:auto;}
+.case_study_pagination .pagination_arrow_svg {position:absolute;width:36%;}
+.case_study_pagination .pagination_arrow_svg.right {transform:scaleX(-1);}
+.case_study_pagination .pagination_arrow_svg svg {display:block;width:100%;height:auto;}
+
 .case_study_pagination small {display:block;font:inherit;}
 a { color: inherit; }
-.case_study_pagination .next-case-study:last-child {justify-self:end;align-items:flex-end;text-align:right;}
+.case_study_pagination .next-case-study:last-child {justify-self:end;}
 .case_study_pagination .large-button { border:1px solid currentColor;border-radius:200px;padding:18px 22px;font:400 clamp(22px,3vw,36px)/20px "Xanh Mono",serif;text-decoration:none;text-align:center; }
 .case_study_pagination .large-button:is(:hover,:focus-visible) {background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}

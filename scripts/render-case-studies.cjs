@@ -32,9 +32,11 @@ function harmonyDocument(project, content, title) {
   const portfolio = read('assets/case-studies/harmony-wrapper.html');
   const slugs = Object.keys(projects).filter(slug => slug !== 'nomad-nook');
   const index = slugs.indexOf('harmony-sync');
-  const linkedCase = (slug, label) => slug
-    ? `<a href="${new URL(slug + '/', baseURI)}" class="next-case-study" target="_top" data-portfolio-case="${slug}"><small>${label}</small>${projects[slug].title}</a>`
-    : '';
+  const pagination = template.slice(template.indexOf('<div class="case_study_pagination">'));
+  const circles = [...pagination.matchAll(/<a [^>]*class="next-case-study[^"]*"[^>]*>([\s\S]*?)<\/a>/g)];
+  if (circles.length < 2) throw new Error('Missing shared case study circles');
+  const linkedCase = (slug, direction, artwork) =>
+    `<a href="${new URL(slug + '/', baseURI)}" class="next-case-study" target="_top" data-portfolio-case="${slug}" aria-label="${direction} case study: ${projects[slug].title}">${artwork}</a>`;
   const sharedScript = id => {
     const start = template.indexOf('<script id="' + id + '">');
     if (start === -1) throw new Error('Missing case study behavior: ' + id);
@@ -52,9 +54,9 @@ function harmonyDocument(project, content, title) {
     COVER: content.hero,
     ABOUT: content.about,
     BODY: content.body,
-    PAGINATION: linkedCase(slugs[index - 1], 'Previous case study')
+    PAGINATION: linkedCase(slugs[(index - 1 + slugs.length) % slugs.length], 'Previous', circles[0][1])
       + '<a class="large-button" href="' + baseURI + '" target="_top">take me home</a>'
-      + linkedCase(slugs[(index + 1) % slugs.length], 'Next case study'),
+      + linkedCase(slugs[(index + 1) % slugs.length], 'Next', circles[1][1]),
   };
   return portfolio.replace(/%%([A-Z]+)%%/g, (_match, field) => fields[field]);
 }
