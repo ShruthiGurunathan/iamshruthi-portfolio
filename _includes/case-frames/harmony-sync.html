@@ -22,12 +22,12 @@ body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 &q
 .page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
 .case-study-hero { padding: calc(var(--llw-vh, 1vh) * 30) 0 calc(var(--llw-vh, 1vh) * 20); }
-.case-study-hero h1 { margin-bottom:48px;font-size:8vw;font-weight:400;line-height:1; }
+.case-study-hero h1 { margin:20px 0 48px;font-size:8vw;font-weight:400;line-height:1; }
 .case-study-hero h1 span, .display-medium-alt_wrap, .health-small-title { font-family: &quot;Xanh Mono&quot;, Georgia, serif; font-style: italic; font-weight: 400; }
 .case-study-hero h1 span { font-size:1em;padding-right:.35em;letter-spacing:-.08em;line-height:.8; }
 .discipline-tags { display: flex; flex-wrap: wrap; gap: .8em .6em; margin: 0; padding: 0; list-style: none; }
 .discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding:.5em .6em;letter-spacing:.1em; font: italic 400 14px/1.25 &quot;Xanh Mono&quot;, Georgia, serif; }
-.subtitle { max-width: 50vw;margin-top:48px;font-weight:300; font-size:28px; line-height: 1.2; }
+.subtitle { max-width:50vw;margin:48px 0 10px;font-weight:300; font-size:28px; line-height: 1.2; }
 .casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin:calc(var(--llw-vh, 1vh) * 6) 0 calc(var(--llw-vh, 1vh) * 6) -6vw; }
 .health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); transform: scale(.6); transform-origin: center; margin: 0 0 56px; }
 .full-width-content { margin-inline: -6vw; }
@@ -44,12 +44,13 @@ h1, h2, h3, p { margin: 0; }
 .harmony-system .health-panel-title {padding:0;background:transparent;}
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen .harmony-media { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
-.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;margin-top:40px; }
-.case_study_pagination a { font-size: 21px; text-underline-offset: 4px; }
-.case_study_pagination small { display: block; font-size: 14px; }
+.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) -6vw 0;padding:clamp(16px,1.35vw,29px) 5.6vw;font:14px/20px Arial,sans-serif; }
+.case_study_pagination .next-case-study {display:flex;flex-direction:column;align-items:flex-start;justify-self:start;gap:4px;text-decoration:none;font:inherit;}
+.case_study_pagination .next-case-study:is(:hover,:focus-visible){text-decoration:underline;text-underline-offset:4px;}
+.case_study_pagination small {display:block;font:inherit;}
 a { color: inherit; }
-.case_study_pagination a:last-child { justify-self:end;text-align:right }
-.case_study_pagination .large-button { border:1px solid currentColor;border-radius:200px;padding:18px 22px;font:400 clamp(22px,3vw,36px)/1.15 &quot;Xanh Mono&quot;,serif;text-decoration:none;text-align:center; }
+.case_study_pagination .next-case-study:last-child {justify-self:end;align-items:flex-end;text-align:right;}
+.case_study_pagination .large-button { border:1px solid currentColor;border-radius:200px;padding:18px 22px;font:400 clamp(22px,3vw,36px)/20px &quot;Xanh Mono&quot;,serif;text-decoration:none;text-align:center; }
 .case_study_pagination .large-button:is(:hover,:focus-visible) {background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}
 .section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0}
@@ -74,7 +75,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .case-study-hero h1 span {padding-right:.5em}
   .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
   .casestudy_arrow {width:80vw;margin-top:1vh;margin-bottom:20px}
-  .case_study_pagination {grid-template-columns:1fr 1fr}
+  .case_study_pagination {grid-template-columns:1fr 1fr;padding:22px 6vw}
   .case_study_pagination .large-button {grid-row:2;grid-column:1/-1;justify-self:center}
   .subtitle { max-width:100%;font-size:22px }
   .health-opening-image { margin-bottom: 32px; }
@@ -262,7 +263,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;What the system carries across screens&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Vibe cards, countdowns and labelled audio controls give each stage a recognisable structure. Clearer primary and secondary actions help people distinguish the next step from optional controls.&lt;/p&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/section&gt;
-&lt;div class=&quot;case_study_pagination&quot;&gt;&lt;a href=&quot;https://iamshruthi.com/lives-lived-well/&quot; class=&quot;next-case-study&quot; target=&quot;_top&quot; data-portfolio-case=&quot;lives-lived-well&quot;&gt;&lt;small&gt;← Previous case study&lt;/small&gt;Lives Lived Well&lt;/a&gt;&lt;a class=&quot;large-button&quot; href=&quot;https://iamshruthi.com/&quot; target=&quot;_top&quot;&gt;take me home&lt;/a&gt;&lt;a href=&quot;https://iamshruthi.com/trollect/&quot; class=&quot;next-case-study&quot; target=&quot;_top&quot; data-portfolio-case=&quot;trollect&quot;&gt;&lt;small&gt;Next case study →&lt;/small&gt;Trollect&lt;/a&gt;&lt;/div&gt;
+&lt;div class=&quot;case_study_pagination&quot;&gt;&lt;a href=&quot;https://iamshruthi.com/lives-lived-well/&quot; class=&quot;next-case-study&quot; target=&quot;_top&quot; data-portfolio-case=&quot;lives-lived-well&quot;&gt;&lt;small&gt;Previous case study&lt;/small&gt;Lives Lived Well&lt;/a&gt;&lt;a class=&quot;large-button&quot; href=&quot;https://iamshruthi.com/&quot; target=&quot;_top&quot;&gt;take me home&lt;/a&gt;&lt;a href=&quot;https://iamshruthi.com/trollect/&quot; class=&quot;next-case-study&quot; target=&quot;_top&quot; data-portfolio-case=&quot;trollect&quot;&gt;&lt;small&gt;Next case study&lt;/small&gt;Trollect&lt;/a&gt;&lt;/div&gt;
 &lt;/main&gt;
 &lt;script&gt;
 const page = document.querySelector('.page-wrap');

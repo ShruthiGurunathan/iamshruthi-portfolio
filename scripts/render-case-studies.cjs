@@ -52,9 +52,9 @@ function harmonyDocument(project, content, title) {
     COVER: content.hero,
     ABOUT: content.about,
     BODY: content.body,
-    PAGINATION: linkedCase(slugs[index - 1], '← Previous case study')
+    PAGINATION: linkedCase(slugs[index - 1], 'Previous case study')
       + '<a class="large-button" href="' + baseURI + '" target="_top">take me home</a>'
-      + linkedCase(slugs[(index + 1) % slugs.length], 'Next case study →'),
+      + linkedCase(slugs[(index + 1) % slugs.length], 'Next case study'),
   };
   return portfolio.replace(/%%([A-Z]+)%%/g, (_match, field) => fields[field]);
 }
