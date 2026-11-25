@@ -1,0 +1,26 @@
+<script>
+(() => {
+  const frame = document.getElementById('llw-exact-page');
+  if (!frame) return;
+
+  function labelPrototype() {
+    const document = frame.contentDocument;
+    const container = document?.querySelector('.health-walkthrough, .nutri-prototype-recording');
+    const video = container?.querySelector('video');
+    if (!video || container.querySelector('.health-walkthrough-label')) return;
+
+    const label = document.createElement('p');
+    label.className = 'health-walkthrough-label';
+    label.textContent = {{ include.label | jsonify }};
+    if (container.classList.contains('nutri-prototype-recording')) {
+      container.style.display = 'grid';
+      container.style.justifyItems = 'center';
+      label.style.width = 'min(100%, 390px)';
+    }
+    container.prepend(label);
+  }
+
+  frame.addEventListener('load', labelPrototype);
+  labelPrototype();
+})();
+</script>
