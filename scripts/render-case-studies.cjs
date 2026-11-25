@@ -31,8 +31,19 @@ fs.mkdirSync(frameDirectory, {recursive: true});
 for (const [slug, project] of Object.entries(projects)) {
   const custom = slug === 'lives-lived-well' || slug === 'nutripaw' || slug === 'harmony-sync';
   const content = custom ? JSON.parse(media(read('assets/case-studies/' + slug + '.json'))) : null;
-  const html = projectDocument(project, template, content)
+  let html = projectDocument(project, template, content)
     .replace(/<title>[\s\S]*?<\/title>/i, '<title>' + project.title + ' — Shruthi Gurunathan</title>');
+  if (slug === 'harmony-sync') {
+    const title = project.title + ' — Shruthi Gurunathan';
+    const inheritedBase = html.match(/<base href="([^"]+)">/)?.[1];
+    if (inheritedBase && inheritedBase !== baseURI) {
+      html = html.replaceAll(inheritedBase + '#work', baseURI + '#top')
+        .replaceAll(inheritedBase, baseURI);
+    }
+    html = html.replace(/ data-wf-domain="[^"]+"/, '')
+      .replace(/<meta content="[^"]*" ((?:property="og:title"|name="twitter:title"))>/g,
+        (_match, attribute) => '<meta content="' + title + '" ' + attribute + '>');
+  }
   const srcdoc = html.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
   fs.writeFileSync(path.join(frameDirectory, slug + '.html'), srcdoc.replace(/[ \t]+$/gm, ''));
   const start = html.indexOf('<section class="case-study-hero">');
