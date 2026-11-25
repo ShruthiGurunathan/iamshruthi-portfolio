@@ -34,7 +34,7 @@ h1, h2, h3, p { margin: 0; }
 .copy-block { margin-left: auto; max-width: 560px; }
 .eyebrow { font: italic 24px Georgia, serif; margin-bottom: 10px; }
 .body-copy-large { font-size: clamp(18px, 2vw, 24px); }
-.content-section { display: grid; gap: clamp(22px, 4vw, 46px); padding: clamp(34px, 6vw, 76px) 0; border-bottom: 1px solid var(--line); }
+.content-section { display: grid; gap: 46px; padding: 70px 0; }
 .section-copy-wrap { display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; gap: 20px; }
 .display-medium { display: flex; align-items: baseline; gap: .2em; font-size: clamp(32px, 5.5vw, 68px); font-weight: 400; letter-spacing: -.04em; line-height: 1; }
 .display-medium-alt_wrap { font-size: .57em; }
@@ -50,7 +50,7 @@ a { color: inherit; }
 .case_study_pagination a:last-child { justify-self:end;text-align:right }
 .case_study_pagination .case-home { border:1px solid currentColor;border-radius:50%;padding:16px 22px;font:italic 16px "Xanh Mono",serif;text-decoration:none }
 .case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}
-.section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0;border-block:1px solid var(--line)}
+.section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0}
 .section-marquee-track {display:flex;width:max-content;animation:section-marquee 25s linear infinite}
 .section-marquee-track>div {flex:none;white-space:nowrap}
 .section-marquee-item {display:inline-block;padding-inline:24px;font-size:clamp(25px,4vw,56px)}
@@ -61,6 +61,7 @@ a { color: inherit; }
 @media (hover:hover) and (pointer:fine) {html,body,body * {cursor:none!important}}
 a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 @media (max-width: 767px) {
+  .content-section { gap:28px; padding:40px 0; }
   .section-copy-wrap { grid-template-columns: 1fr; }
   .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
   .casestudy_arrow {width:80vw;margin-top:1vh;margin-bottom:20px}
