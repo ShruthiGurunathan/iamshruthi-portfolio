@@ -7,6 +7,7 @@
 <style>
 @font-face { font-family: "Xanh Mono"; src: url("https://iamshruthi.com/assets/media/1e6182c74b6c0149277d.ttf") format("truetype"); font-display: swap; }
 @font-face {font-family:"Xanh Mono";src:url("https://iamshruthi.com/assets/media/3aa6b644deb964b908d5.ttf");font-style:italic;font-display:swap}
+@font-face {font-family:"Neue Haas Grotesk Display";src:url("https://iamshruthi.com/assets/media/0318836fa1bd7a019f14.otf");font-weight:300;font-display:swap}
 @font-face {font-family:"Neue Haas Grotesk Display";src:url("https://iamshruthi.com/assets/media/dd9f9d98d52e87a2012e.otf");font-weight:400;font-display:swap}
 @font-face {font-family:"Neue Haas Grotesk Display";src:url("https://iamshruthi.com/assets/media/c4566f8e64a2744a99dd.otf");font-weight:700;font-display:swap}
 :root {
@@ -21,13 +22,13 @@ body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 "N
 .page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
 h1, h2, h3, p { margin: 0; }
 .case-study-hero { padding: calc(var(--llw-vh, 1vh) * 30) 0 calc(var(--llw-vh, 1vh) * 20); }
-.case-study-hero h1 { display: flex; align-items: baseline; gap: .25em; font-size: clamp(42px, 8vw, 112px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
+.case-study-hero h1 { display: flex; align-items: baseline; gap: .35em; margin-bottom:48px; font-size:8vw; font-weight: 400; line-height: 1; }
 .case-study-hero h1 span, .display-medium-alt_wrap, .health-small-title { font-family: "Xanh Mono", Georgia, serif; font-style: italic; font-weight: 400; }
-.case-study-hero h1 span { font-size: .52em; }
-.discipline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 40px 0 48px; padding: 0; list-style: none; }
-.discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding: 3px 13px; font: italic 14px "Xanh Mono", Georgia, serif; }
-.subtitle { max-width: 38ch; font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; }
-.casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin: 0 0 clamp(22px, 5vw, 64px) calc((100% - 100vw) / 2); }
+.case-study-hero h1 span { font-size: .55em;letter-spacing:-.08em; }
+.discipline-tags { display: flex; flex-wrap: wrap; gap: .8em .6em; margin: 0; padding: 0; list-style: none; }
+.discipline-tags li { border: 1px solid currentColor; border-radius: 50px; padding:.5em .6em;letter-spacing:.1em; font: italic 14px "Xanh Mono", Georgia, serif; }
+.subtitle { max-width: 50vw;margin-top:48px;font-weight:300; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; }
+.casestudy_arrow { display: block; width: calc(50% + (100vw - 100%) / 2); margin:calc(var(--llw-vh, 1vh) * 6) 0 calc(var(--llw-vh, 1vh) * 6) -6vw; }
 .health-opening-image { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius); transform: scale(.6); transform-origin: center; margin: 0 0 56px; }
 .full-width-content { margin-inline: -6vw; }
 .copy-block { margin-left: auto; max-width: 560px; }
@@ -62,10 +63,12 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 @media (max-width: 767px) {
   .section-copy-wrap { grid-template-columns: 1fr; }
   .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
-  .casestudy_arrow {width:80vw}
+  .casestudy_arrow {width:80vw;margin-top:1vh;margin-bottom:20px}
   .case_study_pagination {grid-template-columns:1fr 1fr}
   .case_study_pagination .case-home {grid-row:2;grid-column:1/-1;justify-self:center}
-  .discipline-tags { margin: 22px 0 28px; }
+  .case-study-hero h1 { font-size:44px;margin-bottom:24px }
+  .subtitle { max-width:100%;margin-top:32px;font-size:20px }
+  .discipline-tags li {font-size:10px}
   .health-opening-image { margin-bottom: 32px; }
 }
 </style>
