@@ -43,7 +43,7 @@ h1, h2, h3, p { margin: 0; }
 .health-panel-title { display:table;align-self:flex-start;max-width:100%;padding:8px 11px;border-radius:3px;background:var(--paper);color:var(--ink);font-family:&quot;Neue Haas Grotesk Display&quot;,Arial,sans-serif;font-size:clamp(12px,1vw,15px);font-weight:700;line-height:1.25;letter-spacing:0; }
 .harmony-system .health-panel-title {padding:0;background:transparent;}
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
-.harmony-screen a { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
+.harmony-screen .harmony-media { padding: 12px; background: #ffffff70; border-radius: var(--case-media-radius); }
 .case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:24px;margin-top:40px; }
 .case_study_pagination a { font-size: 21px; text-underline-offset: 4px; }
 .case_study_pagination small { display: block; font-size: 14px; }
@@ -95,11 +95,11 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .harmony-tablet-flow&gt;figure{grid-column:span 2}
 .harmony-tablet-flow&gt;figure:nth-child(5){grid-column:2/span 2}
 .harmony-section figure{min-width:0;margin:0}
-.harmony-section figure a{display:block}
+.harmony-section .harmony-media{display:block}
 .harmony-screens figure,.harmony-system figure{display:flex;flex-direction:column;gap:8px}
 .harmony-screens figcaption,.harmony-system figcaption{min-height:2.5em}
-.harmony-section .harmony-screen a,.harmony-system .harmony-component a{display:block;position:relative}
-.harmony-section .harmony-screen a{aspect-ratio:3/4}
+.harmony-section .harmony-screen a,.harmony-system .harmony-component .harmony-media{display:block;position:relative}
+.harmony-section .harmony-screen .harmony-media{aspect-ratio:3/4}
 .harmony-section .harmony-screen img,.harmony-system .harmony-component img{position:absolute;inset:0;width:100%;height:100%;padding:12px;object-fit:contain}
 .harmony-detail{width:100%}
 .harmony-detail h3{margin:0 0 8px;font:italic 400 clamp(20px,2vw,28px)/1.2 &quot;Xanh Mono&quot;,Georgia,serif}
@@ -109,8 +109,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .harmony-system.health-system-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
 .harmony-system-column{display:grid;gap:16px;min-width:0}
 .harmony-system .harmony-component{background:#eae7df;padding:14px;border-radius:var(--case-media-radius);min-width:0}
-.harmony-system .harmony-component a{aspect-ratio:4/3}
-.harmony-system .harmony-component a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.harmony-system .harmony-component .harmony-media{aspect-ratio:4/3}
 @media(max-width:767px){
  .harmony-screens{grid-template-columns:repeat(2,minmax(0,1fr))}
  .harmony-tablet-flow.harmony-screens{grid-template-columns:repeat(6,minmax(0,1fr))}
@@ -133,46 +132,40 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 &lt;/ol&gt;&lt;div class=&quot;harmony-screens harmony-tablet-flow&quot;&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Connect the room&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/welcome-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Connect the room&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/welcome-detail.webp&quot; width=&quot;766&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Tablet welcome screen with a QR code and a manual table-code field&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-welcome.webp&quot; width=&quot;831&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Tablet welcome screen with a QR code and a manual table-code field&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;See how the devices work together&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: See how the devices work together&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Guidance overlay explaining how the three devices work together&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-onboarding.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Guidance overlay explaining how the three devices work together&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Set the vibe&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-settings-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Set the vibe&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-settings-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Vibe presets and room lighting, volume, and effects controls&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-vibe.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Vibe presets and room lighting, volume, and effects controls&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Get ready&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/ready-clean.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Get ready&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/ready-clean.webp&quot; width=&quot;203&quot; height=&quot;400&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Next singer countdown, queue position, and readiness controls&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-ready.webp&quot; width=&quot;838&quot; height=&quot;1605&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Next singer countdown, queue position, and readiness controls&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Perform&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/performance-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Perform&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/performance-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Live performance screen with playback, microphone and audience reaction controls&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-perform.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Live performance screen with playback, microphone and audience reaction controls&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Hand over · Great Performance&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/celebrate-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Great Performance&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/celebrate-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Celebration screen that names the next singer&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-great.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Celebration screen that names the next singer&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Hand over · Nice Effort&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/tablet-nice-effort.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Hand over · Nice Effort&quot;&gt;
-        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/tablet-nice-effort.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Nice Effort message and a preview of the next singer&quot;&gt;
-      &lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-nice.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Nice Effort message and a preview of the next singer&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;
 &lt;/div&gt;
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;How the devices work together&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Guests browse and queue songs on their phones. The shared display makes lyrics and the next singer visible to the room, while the tablet handles room settings, performer readiness and audience reactions. After a song, the tablet can show either celebration or encouragement before handing over.&lt;/p&gt;&lt;/div&gt;
 &lt;div class=&quot;harmony-screens&quot;&gt;&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Phone · Browse songs&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/phone-song-browse.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Phone · Browse songs&quot;&gt;
-        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/phone-song-browse.webp&quot; width=&quot;322&quot; height=&quot;700&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Personal song browsing with genre filters, search and recommendations&quot;&gt;
-      &lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/phone-song-browse.webp&quot; width=&quot;322&quot; height=&quot;700&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Personal song browsing with genre filters, search and recommendations&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;Shared display · See who’s next&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/shared-display.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Shared display · See who’s next&quot;&gt;
-        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/shared-display.webp&quot; width=&quot;768&quot; height=&quot;426&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Shared karaoke display showing the next singer and audience reactions&quot;&gt;
-      &lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/shared-display.webp&quot; width=&quot;768&quot; height=&quot;426&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Shared karaoke display showing the next singer and audience reactions&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;&lt;/div&gt;
       &lt;/div&gt;
     &lt;/section&gt;&lt;section class=&quot;content-align-left&quot;&gt;
@@ -183,15 +176,13 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
         &lt;/div&gt;
         &lt;div class=&quot;harmony-screens&quot;&gt;&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;01 · Low fidelity&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/low-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: 01 · Low fidelity&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/low-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Early wireframe for choosing a room vibe&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/low-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Early wireframe for choosing a room vibe&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;02 · Mid fidelity&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/mid-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: 02 · Mid fidelity&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/mid-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Iteration with illustrated Party, Chill and Neon presets&quot;&gt;&lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/mid-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Iteration with illustrated Party, Chill and Neon presets&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;&lt;figure class=&quot;health-panel harmony-screen&quot;&gt;
       &lt;figcaption class=&quot;health-panel-title&quot;&gt;03 · Final ambience controls&lt;/figcaption&gt;
-      &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-settings-detail.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: 03 · Final ambience controls&quot;&gt;
-        &lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/vibe-settings-detail.webp&quot; width=&quot;769&quot; height=&quot;1100&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Final dark tablet screen with three distinct vibe presets and labelled room controls&quot;&gt;
-      &lt;/a&gt;
+      &lt;div class=&quot;harmony-media&quot;&gt;&lt;img src=&quot;https://iamshruthi.com/assets/harmony-sync/final-tablet-vibe.webp&quot; width=&quot;834&quot; height=&quot;1194&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; alt=&quot;Final dark tablet screen with three distinct vibe presets and labelled room controls&quot;&gt;&lt;/div&gt;
     &lt;/figure&gt;&lt;/div&gt;
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;Make the handover clearer&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Five participants reviewed the tablet against Nielsen’s usability heuristics. The review found six severity-1 issues and four severity-2 issues, including unclear queue position, performer readiness and onboarding. I added a position-in-queue panel, an “I’m Ready” action and a short guide explaining the role of each device.&lt;/p&gt;&lt;/div&gt;
 &lt;div class=&quot;harmony-detail&quot;&gt;&lt;h3&gt;Separate the main controls&lt;/h3&gt;&lt;p class=&quot;body-copy-small&quot;&gt;Design feedback prompted a visible manual table-code field, a consistent Home button and fewer settings icons. I also moved the key control closer to its label and made song and singer information easier to distinguish.&lt;/p&gt;&lt;/div&gt;
@@ -200,85 +191,61 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
       &lt;div class=&quot;content-section harmony-section&quot;&gt;
         &lt;div data-wf--section-header--variant=&quot;horizontal&quot; class=&quot;section-copy-wrap health-aligned-userflows&quot;&gt;
           &lt;h2 class=&quot;display-medium&quot;&gt;&lt;span class=&quot;display-medium-alt_wrap&quot;&gt;03&lt;/span&gt;design system&lt;/h2&gt;
-          &lt;div class=&quot;caption&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;The tablet’s component board brings together the controls for joining a room, setting the vibe and passing the mic. Open any panel to see its states and labels at full size.&lt;/p&gt;&lt;/div&gt;
+          &lt;div class=&quot;caption&quot;&gt;&lt;p class=&quot;body-copy-small&quot;&gt;The tablet’s component board brings together the controls for joining a room, setting the vibe and passing the mic.&lt;/p&gt;&lt;/div&gt;
         &lt;/div&gt;
         &lt;div class=&quot;health-system-grid harmony-system health-system-overview&quot;&gt;
 &lt;div class=&quot;harmony-system-column&quot;&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Tablet palette&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-palette.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Tablet palette&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-palette.webp&quot; width=&quot;757&quot; height=&quot;270&quot; alt=&quot;Warm orange and brown shades with olive, slate blue and muted yellow accents&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-palette.webp&quot; width=&quot;757&quot; height=&quot;270&quot; alt=&quot;Warm orange and brown shades with olive, slate blue and muted yellow accents&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Tablet typography&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-type.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Tablet typography&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-type.webp&quot; width=&quot;952&quot; height=&quot;495&quot; alt=&quot;Tablet-specific heading and body text samples&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-type.webp&quot; width=&quot;952&quot; height=&quot;495&quot; alt=&quot;Tablet-specific heading and body text samples&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Icon states&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-icon-states.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Icon states&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-icon-states.webp&quot; width=&quot;805&quot; height=&quot;220&quot; alt=&quot;Tablet icon controls in default, hover and focus states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-icon-states.webp&quot; width=&quot;805&quot; height=&quot;220&quot; alt=&quot;Tablet icon controls in default, hover and focus states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Celebration feedback&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-feedback.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Celebration feedback&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-feedback.webp&quot; width=&quot;620&quot; height=&quot;604&quot; alt=&quot;Celebration illustration and circular feedback treatments&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-feedback.webp&quot; width=&quot;620&quot; height=&quot;604&quot; alt=&quot;Celebration illustration and circular feedback treatments&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 &lt;div class=&quot;harmony-system-column&quot;&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Vibe cards&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-vibe-states.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Vibe cards&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-vibe-states.webp&quot; width=&quot;664&quot; height=&quot;445&quot; alt=&quot;Party, Chill and Neon cards with hover and selected states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-vibe-states.webp&quot; width=&quot;664&quot; height=&quot;445&quot; alt=&quot;Party, Chill and Neon cards with hover and selected states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Reaction and continue buttons&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-actions.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Reaction and continue buttons&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-actions.webp&quot; width=&quot;880&quot; height=&quot;368&quot; alt=&quot;Cheer, Applause and Continue with interaction states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-actions.webp&quot; width=&quot;880&quot; height=&quot;368&quot; alt=&quot;Cheer, Applause and Continue with interaction states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Primary button states&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-buttons.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Primary button states&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-buttons.webp&quot; width=&quot;1107&quot; height=&quot;330&quot; alt=&quot;Tablet action buttons at several sizes and states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-buttons.webp&quot; width=&quot;1107&quot; height=&quot;330&quot; alt=&quot;Tablet action buttons at several sizes and states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Onboarding prompt&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-onboarding.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Onboarding prompt&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-onboarding.webp&quot; width=&quot;526&quot; height=&quot;465&quot; alt=&quot;Welcome overlay explaining what each device does&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-onboarding.webp&quot; width=&quot;526&quot; height=&quot;465&quot; alt=&quot;Welcome overlay explaining what each device does&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 &lt;div class=&quot;harmony-system-column&quot;&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Singer and queue cards&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-singer-queue.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Singer and queue cards&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-singer-queue.webp&quot; width=&quot;1580&quot; height=&quot;698&quot; alt=&quot;Countdown, current singer, mic controls, Up Next and position in queue&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-singer-queue.webp&quot; width=&quot;1580&quot; height=&quot;698&quot; alt=&quot;Countdown, current singer, mic controls, Up Next and position in queue&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Navigation and status bars&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-navigation.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Navigation and status bars&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-navigation.webp&quot; width=&quot;622&quot; height=&quot;475&quot; alt=&quot;Tablet header and footer states for table, music, audio, microphone and transition effects&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-navigation.webp&quot; width=&quot;622&quot; height=&quot;475&quot; alt=&quot;Tablet header and footer states for table, music, audio, microphone and transition effects&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Sliders, progress and playback&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-audio.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Sliders, progress and playback&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-audio.webp&quot; width=&quot;1035&quot; height=&quot;705&quot; alt=&quot;Audio slider and progress bar variants, countdown ring and playback controls&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-audio.webp&quot; width=&quot;1035&quot; height=&quot;705&quot; alt=&quot;Audio slider and progress bar variants, countdown ring and playback controls&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;figure class=&quot;health-panel harmony-component&quot;&gt;
   &lt;figcaption class=&quot;health-panel-title&quot;&gt;Effects dropdown&lt;/figcaption&gt;
-  &lt;a href=&quot;https://iamshruthi.com/assets/harmony-sync/component-dropdown.webp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot; aria-label=&quot;Open full-size image: Effects dropdown&quot;&gt;
-    &lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-dropdown.webp&quot; width=&quot;1185&quot; height=&quot;275&quot; alt=&quot;Echo dropdown open and closed states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;
-  &lt;/a&gt;
+  &lt;div class=&quot;harmony-media&quot;&gt;&lt;img class=&quot;health-panel-image&quot; src=&quot;https://iamshruthi.com/assets/harmony-sync/component-dropdown.webp&quot; width=&quot;1185&quot; height=&quot;275&quot; alt=&quot;Echo dropdown open and closed states&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;&lt;/div&gt;
 &lt;/figure&gt;
 &lt;/div&gt;
 &lt;/div&gt;
