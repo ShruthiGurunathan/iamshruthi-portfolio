@@ -33,7 +33,7 @@ function harmonyDocument(project, content, title) {
   const slugs = Object.keys(projects).filter(slug => slug !== 'nomad-nook');
   const index = slugs.indexOf('harmony-sync');
   const linkedCase = (slug, label) => slug
-    ? `<a href="${new URL(slug + '/', baseURI)}" target="_top" data-portfolio-case="${slug}"><small>${label}</small>${projects[slug].title}</a>`
+    ? `<a href="${new URL(slug + '/', baseURI)}" class="next-case-study" target="_top" data-portfolio-case="${slug}"><small>${label}</small>${projects[slug].title}</a>`
     : '';
   const sharedScript = id => {
     const start = template.indexOf('<script id="' + id + '">');
@@ -43,7 +43,7 @@ function harmonyDocument(project, content, title) {
   const labels = content.labels.map((label, i) =>
     `<span class="section-marquee-item"><i>0${i + 1}</i> ${label} <span>⟶</span></span>`).join('');
   const fields = {
-    MOTION: ['forward-portfolio-pointer', 'portfolio-case-pagination', 'health-parent-scroll-motion'].map(sharedScript).join('\n'),
+    MOTION: ['case-home-return-priority', 'forward-portfolio-pointer', 'portfolio-case-pagination', 'health-parent-scroll-motion'].map(sharedScript).join('\n'),
     MARQUEE: labels,
     TITLE: title,
     HERO: `<h1><span>${project.number}</span>${project.title}</h1>
@@ -53,7 +53,7 @@ function harmonyDocument(project, content, title) {
     ABOUT: content.about,
     BODY: content.body,
     PAGINATION: linkedCase(slugs[index - 1], '← Previous case study')
-      + '<a class="case-home" href="' + baseURI + '" target="_top">take me home</a>'
+      + '<a class="large-button" href="' + baseURI + '" target="_top">take me home</a>'
       + linkedCase(slugs[(index + 1) % slugs.length], 'Next case study →'),
   };
   return portfolio.replace(/%%([A-Z]+)%%/g, (_match, field) => fields[field]);
