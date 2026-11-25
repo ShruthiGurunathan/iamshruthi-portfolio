@@ -6163,6 +6163,9 @@ body .clean-story-footer .clean-story-text svg text{font-family:'Xanh Mono',mono
 body .clean-story-footer .clean-story-icons{flex:none!important;width:var(--story-icon-width,10vw)!important;height:var(--story-shared-height,12vw)!important;transform:none!important;}
 body .clean-story-footer .clean-story-icons .story-icon-theme-mask{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;aspect-ratio:138/173!important;mask-size:100% 100%!important;-webkit-mask-size:100% 100%!important;}
 @media(max-width:600px){body .clean-story-footer{padding-top:8px!important;padding-bottom:22px!important;}}
+{% if page.case_study %}
+body .clean-story-footer{padding-bottom:0!important;}
+{% endif %}
 </style>
 <script id="story-fit-text-and-icon">
 (function(){
