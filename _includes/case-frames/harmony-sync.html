@@ -20,7 +20,7 @@
 * { box-sizing: border-box; }
 html, body {width:100%;max-width:100%;overflow-x:clip;}
 body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.5 &quot;Neue Haas Grotesk Display&quot;, Arial, sans-serif; }
-.page-wrap { width: 88%; margin: auto; padding: 0 0 64px; }
+.page-wrap { width:88%;margin:auto; }
 h1, h2, h3, p { margin: 0; }
 .case-study-hero { padding: calc(var(--llw-vh, 1vh) * 30) 0 calc(var(--llw-vh, 1vh) * 20); }
 .case-study-hero h1 { margin:20px 0 48px;font-size:8vw;font-weight:400;line-height:1; }
@@ -48,17 +48,17 @@ h1, h2, h3, p { margin: 0; }
 .health-panel img { display: block; max-width: 100%; height: auto; border-radius: 5px; }
 .harmony-screen { padding:clamp(10px,1vw,16px);background:#eae7df;border-radius:var(--case-media-radius); }
 .harmony-screen .harmony-media { border-radius:var(--case-media-radius); }
-.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) -6vw 0;padding:clamp(16px,1.35vw,29px) 5.6vw;font:14px/20px Arial,sans-serif; }
+.case_study_pagination { display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:clamp(16px,2.5vw,48px);margin:clamp(24px,2.5vw,52px) -6vw 0;padding:clamp(16px,1.35vw,29px) 5.6vw;border-block:1px solid var(--ink);font:14px/20px Arial,sans-serif; }
 .case_study_pagination .next-case-study {position:relative;display:flex;align-items:center;justify-content:center;justify-self:start;color:var(--ink);}
-.case_study_pagination .copy-circle svg {display:block;width:clamp(66px,12.3vw,166px);height:auto;}
-.case_study_pagination .pagination_arrow_svg {position:absolute;width:36%;}
-.case_study_pagination .pagination_arrow_svg.right {transform:scaleX(-1);}
-.case_study_pagination .pagination_arrow_svg svg {display:block;width:100%;height:auto;}
+.case_study_pagination .copy-circle svg {width:166px;max-width:20vw;height:auto;}
+.case_study_pagination .pagination_arrow_svg {position:absolute;width:5vw;}
+.case_study_pagination .pagination_arrow_svg.right {transform:rotateY(180deg);}
+.case_study_pagination .pagination_arrow_svg svg {width:100%;height:auto;}
 
 .case_study_pagination small {display:block;font:inherit;}
 a { color: inherit; }
 .case_study_pagination .next-case-study:last-child {justify-self:end;}
-.case_study_pagination .large-button { border:1px solid currentColor;border-radius:200px;padding:18px 22px;font:400 clamp(22px,3vw,36px)/20px &quot;Xanh Mono&quot;,serif;text-decoration:none;text-align:center; }
+.case_study_pagination .large-button { border:1px solid currentColor;border-radius:200px;padding:18px 22px;font:400 36px/20px &quot;Xanh Mono&quot;,serif;text-decoration:none;text-align:center; }
 .case_study_pagination .large-button:is(:hover,:focus-visible) {background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .case_study_pagination a:is(:hover,:focus-visible) {color:var(--hover-accent,#4c7788)}
 .section-marquee {overflow:hidden;margin:48px -6vw 0;padding:12px 0}
@@ -76,6 +76,8 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .case-study-hero h1{margin-bottom:24px}
   .subtitle{max-width:75vw;margin-top:40px;font-size:24px}
   .eyebrow{font-size:18px}
+  .case_study_pagination .large-button{font-size:32px;padding:1ch;}
+  .case_study_pagination .pagination_arrow_svg.right{width:6vw}
 }
 @media (max-width: 767px) {
   .content-section { gap:28px; padding:40px 0; }
@@ -83,8 +85,9 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .case-study-hero h1 span {padding-right:.5em}
   .case-study-hero {padding:calc(var(--llw-vh, 1vh) * 23) 0 36px}
   .casestudy_arrow {width:80vw;margin-top:1vh;margin-bottom:20px}
-  .case_study_pagination {grid-template-columns:1fr 1fr;padding:22px 6vw}
-  .case_study_pagination .large-button {grid-row:2;grid-column:1/-1;justify-self:center}
+  .case_study_pagination{display:flex;flex-direction:column;gap:22px;padding:22px 6vw}
+  .case_study_pagination .large-button{font-size:26px}
+  .case_study_pagination .pagination_arrow_svg:is(.left,.right){width:7vw}
   .subtitle { max-width:100%;font-size:22px }
   .health-opening-image { margin-bottom: 32px; }
 }
@@ -94,6 +97,8 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .discipline-tags li{font-size:10px}
   .display-medium{font-size:28px}
   .eyebrow{font-size:15px;line-height:1}
+  .case_study_pagination .large-button{font-size:22px}
+  .case_study_pagination .pagination_arrow_svg:is(.left,.right){width:10vw}
 }
 &lt;/style&gt;
 &lt;/head&gt;
