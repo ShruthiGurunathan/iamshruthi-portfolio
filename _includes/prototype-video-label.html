@@ -1,5 +1,5 @@
 <script>
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const frame = document.getElementById('llw-exact-page');
   if (!frame) return;
 
@@ -22,5 +22,5 @@
 
   frame.addEventListener('load', labelPrototype);
   labelPrototype();
-})();
+}, { once: true });
 </script>
