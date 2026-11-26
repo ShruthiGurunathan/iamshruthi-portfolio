@@ -18,7 +18,9 @@
         .water-content .water-copy-block :is(h3, p) { color: inherit !important; }
         .water-content .water-copy-block > p { max-width: 66ch; }
         .water-content .water-copy-block > :last-child { margin-bottom: 0; }
-        .water-content .water-photo-single { width: min(100%, 620px); }
+        .water-content .water-cards.water-evidence { grid-template-columns: repeat(2,minmax(0,1fr)); }
+        .water-content .water-evidence h3 { margin-top: 0; }
+        @media (max-width: 600px) { .water-content .water-cards.water-evidence { grid-template-columns: minmax(0,1fr); } }
         .water-content .water-figure img { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius, 10px); }
         .water-content .water-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; }
       </style>
@@ -47,15 +49,15 @@
         <h2 class="display-medium"><span class="display-medium-alt_wrap">02</span>prototype testing</h2>
         <div class="caption"><p class="body-copy-small">We built a floor-pad prototype to see whether visitors could figure out where to start and recognise their own contribution when others joined. Four people tried it in a simulated market setting.</p></div>
       </div>
-      <div class="water-cards water-photo-single">
-        <figure class="health-panel water-figure">
-          <figcaption class="health-panel-title">Lab prototype · Activation feedback</figcaption>
-          <img src="https://iamshruthi.com/assets/living-waters-prototype-feedback.webp" width="459" height="205" loading="lazy" decoding="async" alt="Green lights indicating that a floor pad registered a participant">
-        </figure>
-      </div>
-      <div class="water-copy-block">
-        <h3 class="subheading">what the test revealed</h3>
-        <p class="body-copy-small">The shared light effects drew people in, but starting was harder than joining. One participant rated initial pad activation 3 out of 7 for ease, while joining others scored 5–6. People also struggled to tell which sounds they had triggered. That led us to make the pads easier to spot and give each one a distinct response.</p>
+      <div class="water-cards water-evidence">
+        <div class="health-panel water-figure">
+          <h3 class="health-panel-title">Finding · Getting started</h3>
+          <p class="body-copy-small">One participant rated initial pad activation 3 out of 7 for ease. Joining others scored 5–6 out of 7.</p>
+        </div>
+        <div class="health-panel water-figure">
+          <h3 class="health-panel-title">Finding · Recognising your contribution</h3>
+          <p class="body-copy-small">Visitors enjoyed the shared lighting but found it harder to tell which sounds their pad had triggered.</p>
+        </div>
       </div>
     </div>
   </section>
