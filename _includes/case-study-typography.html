@@ -1,6 +1,13 @@
 <template id="case-study-typography">
   <style>
     @font-face {
+      font-family: "Xanh Mono";
+      src: url("/assets/media/3aa6b644deb964b908d5.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
       font-family: "Neue Haas Grotesk Display";
       src: url("/assets/media/0318836fa1bd7a019f14.otf") format("opentype");
       font-weight: 300;
@@ -47,7 +54,7 @@
       font-size: 1em !important;
     }
     body .page-wrap :is(.subheading, .health-small-title, .water-lead, .harmony-detail h3, .content-section h3.eyebrow) {
-      font: 700 var(--case-subheading)/1.12 var(--case-type) !important;
+      font: italic 400 var(--case-subheading)/1.12 "Xanh Mono", Georgia, serif !important;
       letter-spacing: normal !important;
       margin-block: 0 0.45em !important;
     }
