@@ -1,3 +1,7 @@
+{%- capture footer_reference -%}{%- include case-frames/harmony-sync.html -%}{%- endcapture -%}
+{%- assign footer_start = '&lt;div class=&quot;case_study_pagination&quot;&gt;' -%}
+{%- assign footer_markup = footer_reference | split: footer_start | last | split: '&lt;/main&gt;' | first -%}
+{%- assign footer_markup = footer_markup | replace: 'lives-lived-well', 'nutripaw' | replace: 'Previous case study: Lives Lived Well', 'Previous case study: NutriPaw' | replace: 'trollect', 'lives-lived-well' | replace: 'Next case study: Trollect', 'Next case study: Lives Lived Well' -%}
 {%- capture living_waters_frame -%}
 <!doctype html>
 <html lang="en">
@@ -98,12 +102,6 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .case_study_pagination .large-button{font-size:22px}
   .case_study_pagination .pagination_arrow_svg:is(.left,.right){width:10vw}
 }
-  .navigation-circle { display:block; width:clamp(58px,12vw,166px); height:auto; fill:currentColor; font:italic 17px "Xanh Mono",Georgia,serif; }
-  .navigation-arrow { font:400 46px "Xanh Mono",Georgia,serif; }
-  @media (max-width:767px) {
-    .case_study_pagination { display:grid; }
-    .case_study_pagination .large-button { white-space:nowrap; }
-  }
   .water-cover { width:min(100%, 620px); margin:0 auto clamp(32px,5vw,64px); }
   .water-cover figcaption { margin-bottom:12px; }
   .water-cover .health-opening-image { margin:0; }
@@ -127,9 +125,7 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 <p class="body-copy-small">Studio project · Sydney Fish Market, Glebe · 2026</p></div>
 <div class="section-marquee" aria-hidden="true"><div class="section-marquee-track"><div><span class="section-marquee-item"><i>01</i> the experience <span>⟶</span></span><span class="section-marquee-item"><i>02</i> prototype testing <span>⟶</span></span><span class="section-marquee-item"><i>03</i> design refinements <span>⟶</span></span></div><div><span class="section-marquee-item"><i>01</i> the experience <span>⟶</span></span><span class="section-marquee-item"><i>02</i> prototype testing <span>⟶</span></span><span class="section-marquee-item"><i>03</i> design refinements <span>⟶</span></span></div></div></div>
 {% include living-waters-content.html %}
-<div class="case_study_pagination"><a class="next-case-study" href="https://iamshruthi.com/nutripaw/" target="_top" aria-label="Previous case study: NutriPaw"><svg class="navigation-circle" viewBox="0 0 166 166" aria-hidden="true"><circle cx="83" cy="83" r="80" fill="none" stroke="currentColor"/><circle cx="83" cy="83" r="57" fill="none" stroke="currentColor"/><defs><path id="lw-prev-ring" d="M83 14a69 69 0 1 1 0 138a69 69 0 1 1 0-138"/></defs><text><textPath href="#lw-prev-ring" textLength="427">this way ✦ this way ✦ this way ✦ </textPath></text><text class="navigation-arrow" x="83" y="97" text-anchor="middle">←</text></svg></a>
-<a class="large-button" href="https://iamshruthi.com/" target="_top">take me home</a>
-<a class="next-case-study" href="https://iamshruthi.com/lives-lived-well/" target="_top" aria-label="Next case study: Lives Lived Well"><svg class="navigation-circle" viewBox="0 0 166 166" aria-hidden="true"><circle cx="83" cy="83" r="80" fill="none" stroke="currentColor"/><circle cx="83" cy="83" r="57" fill="none" stroke="currentColor"/><defs><path id="lw-next-ring" d="M83 14a69 69 0 1 1 0 138a69 69 0 1 1 0-138"/></defs><text><textPath href="#lw-next-ring" textLength="427">that way ✦ that way ✦ that way ✦ </textPath></text><text class="navigation-arrow" x="83" y="97" text-anchor="middle">→</text></svg></a></div>
+@@CASE_FOOTER@@
 </main>
 <script>
 const page = document.querySelector('.page-wrap');
@@ -141,4 +137,5 @@ new ResizeObserver(() => {
 
 </body>
 </html>
-{%- endcapture -%}{{ living_waters_frame | escape }}
+{%- endcapture -%}{%- assign frame_fragments = living_waters_frame | split: '@@CASE_FOOTER@@' -%}
+{{- frame_fragments.first | escape -}}{{- footer_start -}}{{- footer_markup -}}{{- frame_fragments.last | escape -}}
