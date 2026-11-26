@@ -84,9 +84,15 @@ permalink: /404.html
       dial.style.setProperty('--turn', rotation + 'deg');
     }
 
+    function previewColour(step) {
+      const colour = String(((step % 4) + 4) % 4);
+      const theme = document.documentElement.dataset;
+      if (theme.colour !== colour) theme.colour = colour;
+    }
+
     function selectColour(step) {
       turnTo(step * 90);
-      document.documentElement.dataset.colour = ((step % 4) + 4) % 4;
+      previewColour(step);
     }
 
     function pointerAngle(event, centre) {
@@ -114,6 +120,7 @@ permalink: /404.html
       drag.moved = true;
       dial.classList.add('is-dragging');
       turnTo(rotation + delta);
+      previewColour(Math.round(rotation / 90));
     });
     function finishDrag(event) {
       if (drag?.id !== event.pointerId) return;
