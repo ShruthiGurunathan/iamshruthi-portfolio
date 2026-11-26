@@ -6,9 +6,17 @@
         .water-content .water-section-heading { align-items: start; }
         .water-content .water-section-heading .display-medium { font-weight: 400 !important; }
         .water-content .water-section-heading .caption p { margin: 0; }
-        .water-content .water-figure .health-panel-title { display: table; justify-self: start; width: fit-content; max-width: 100%; margin: 0 0 16px; padding: 8px 11px; border-radius: 3px; background: #fff; color: var(--ink); text-align: left; font: 700 15px/1.25 "Neue Haas Grotesk Display", Arial, sans-serif !important; letter-spacing: 0; }
-        @media (max-width: 767px) { .water-content .water-figure .health-panel-title { font-size: 13px !important; margin-bottom: 12px; } }
-        .water-content .water-copy-block { color: var(--ink); }
+        .water-content .water-figure .health-panel-title {
+          display: table; justify-self: start; width: fit-content; max-width: 100%;
+          margin: 0 0 16px; padding: 8px 11px; border-radius: 3px;
+          background: #fff; color: var(--ink) !important; text-align: left; letter-spacing: 0;
+        }
+        .water-content .water-copy-block {
+          background: transparent !important; border: 0; box-shadow: none; padding: 0;
+          color: var(--ink);
+        }
+        .water-content .water-copy-block :is(h3, p) { color: inherit !important; }
+        .water-content .water-copy-block > p { max-width: 66ch; }
         .water-content .water-copy-block > :last-child { margin-bottom: 0; }
         .water-content .water-cards.water-photo-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
         .water-content .water-photo-pair .water-figure { width: 100%; max-width: none; display: grid; grid-template-rows: 1fr auto; align-items: start; }
@@ -16,7 +24,6 @@
         .water-content .water-photo-pair img { aspect-ratio: 12 / 5; object-fit: contain; }
         .water-content .water-figure img { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius, 10px); }
         .water-content .water-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; }
-        
       </style>
       <div class="section-copy-wrap water-section-heading">
         <h2 class="display-medium"><span class="display-medium-alt_wrap">01</span>the experience</h2>
