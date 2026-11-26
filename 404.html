@@ -36,7 +36,9 @@ permalink: /404.html
     main { display:grid; place-items:center; padding:48px 0; }
     .number { display:flex; align-items:center; justify-content:center; gap:clamp(6px,2vw,24px); font:italic clamp(58px,24vw,288px)/.88 "Xanh Mono",Georgia,serif; }
     .dial { position:relative; display:grid; place-items:center; flex:none; width:.85em; aspect-ratio:1; border:1px solid currentColor; outline:1px dashed currentColor; outline-offset:5px; border-radius:50%; font:inherit; color:inherit; background:transparent; padding:0; }
-    button.dial { cursor:pointer; transition:background-color 480ms ease, color 480ms ease, border-color 480ms ease, outline-color 480ms ease; }
+    button.dial { touch-action:none; user-select:none; cursor:grab; cursor:pointer; transition:background-color 480ms ease, color 480ms ease, border-color 480ms ease, outline-color 480ms ease; }
+    button.dial.is-dragging { cursor:grabbing; }
+    .dial.is-dragging .needle { transition:none; }
     .dial span { font-size:.76em; }
     .needle { position:absolute; inset:0; transform:rotate(var(--turn,0deg)); transition:transform 560ms cubic-bezier(.22,.75,.24,1); pointer-events:none; }
     .needle::before { content:""; position:absolute; top:-.018em; left:50%; width:.045em; aspect-ratio:1; background:var(--ink); border-radius:50%; }
@@ -62,7 +64,7 @@ permalink: /404.html
   </main>
   <footer>
     <h1 aria-label="404. Off the map.">off the map.</h1>
-    <p id="dial-hint" hidden>Turn the dial to change the colours.</p>
+    <p id="dial-hint" hidden>Drag or tap the zero to change colours.</p>
   </footer>
   <script>
     const face = document.querySelector('.dial');
@@ -73,20 +75,69 @@ permalink: /404.html
     dial.append(...face.childNodes);
     face.replaceWith(dial);
     document.getElementById('dial-hint').hidden = false;
-    let turns = 0;
-    dial.addEventListener('click', () => {
-      turns += 1;
-      document.documentElement.dataset.colour = turns % 4;
-      dial.style.setProperty('--turn', (turns * 90) + 'deg');
+    let rotation = 0;
+    let drag;
+    let ignorePointerClick = false;
+
+    function turnTo(angle) {
+      rotation = angle;
+      dial.style.setProperty('--turn', rotation + 'deg');
+    }
+
+    function selectColour(step) {
+      turnTo(step * 90);
+      document.documentElement.dataset.colour = ((step % 4) + 4) % 4;
+    }
+
+    function pointerAngle(event, centre) {
+      return Math.atan2(event.clientY - centre.y, event.clientX - centre.x) * 180 / Math.PI;
+    }
+
+    dial.addEventListener('pointerdown', event => {
+      if (!event.isPrimary || event.button !== 0 || drag) return;
+      ignorePointerClick = false;
+      const bounds = dial.getBoundingClientRect();
+      const centre = { x: bounds.left + bounds.width / 2, y: bounds.top + bounds.height / 2 };
+      drag = {
+        id: event.pointerId, centre, angle: pointerAngle(event, centre),
+        start: rotation, x: event.clientX, y: event.clientY, moved: false
+      };
+      dial.setPointerCapture(event.pointerId);
     });
-    let lastWheelTurn = -Infinity;
-    dial.addEventListener('wheel', event => {
-      if (document.activeElement !== dial || event.deltaY === 0) return;
+    dial.addEventListener('pointermove', event => {
+      if (drag?.id !== event.pointerId) return;
+      if (Math.hypot(event.clientX - drag.centre.x, event.clientY - drag.centre.y) < 12) return;
+      if (!drag.moved && Math.hypot(event.clientX - drag.x, event.clientY - drag.y) < 5) return;
+      const angle = pointerAngle(event, drag.centre);
+      const delta = ((angle - drag.angle + 540) % 360) - 180;
+      drag.angle = angle;
+      drag.moved = true;
+      dial.classList.add('is-dragging');
+      turnTo(rotation + delta);
+    });
+    function finishDrag(event) {
+      if (drag?.id !== event.pointerId) return;
+      const completed = event.type === 'pointerup';
+      ignorePointerClick = drag.moved || !completed;
+      dial.classList.remove('is-dragging');
+      selectColour(Math.round((completed ? rotation : drag.start) / 90));
+      drag = undefined;
+    }
+    dial.addEventListener('pointerup', finishDrag);
+    dial.addEventListener('pointercancel', finishDrag);
+    dial.addEventListener('lostpointercapture', finishDrag);
+    dial.addEventListener('click', event => {
+      if (event.detail && ignorePointerClick) {
+        ignorePointerClick = false;
+        return;
+      }
+      selectColour(Math.round(rotation / 90) + 1);
+    });
+    dial.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
       event.preventDefault();
-      if (event.timeStamp - lastWheelTurn < 500) return;
-      lastWheelTurn = event.timeStamp;
-      dial.click();
-    }, { passive:false });
+      selectColour(Math.round(rotation / 90) + (event.key === 'ArrowLeft' ? -1 : 1));
+    });
   </script>
 </body>
 </html>
