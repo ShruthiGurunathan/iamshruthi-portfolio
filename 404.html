@@ -26,6 +26,8 @@ permalink: /404.html
     :root[data-colour="3"] { --paper:#6b3f58; --ink:#ead9df; }
     * { box-sizing:border-box; }
     body { margin:0; min-height:100svh; padding:clamp(18px,4vw,58px); display:grid; grid-template-rows:auto 1fr auto; color:var(--ink); background:var(--paper); font:18px/1.4 "Neue Haas Grotesk Display",Arial,sans-serif; }
+    body { transition:background-color 480ms ease, color 480ms ease; }
+    .needle::before { transition:background-color 480ms ease; }
     header { display:flex; align-items:center; justify-content:space-between; gap:20px; }
     a { color:inherit; }
     .brand { display:inline-flex; padding:4px; }
@@ -34,15 +36,15 @@ permalink: /404.html
     main { display:grid; place-items:center; padding:48px 0; }
     .number { display:flex; align-items:center; justify-content:center; gap:clamp(6px,2vw,24px); font:italic clamp(58px,24vw,288px)/.88 "Xanh Mono",Georgia,serif; }
     .dial { position:relative; display:grid; place-items:center; flex:none; width:.85em; aspect-ratio:1; border:1px solid currentColor; outline:1px dashed currentColor; outline-offset:5px; border-radius:50%; font:inherit; color:inherit; background:transparent; padding:0; }
-    button.dial { cursor:pointer; }
+    button.dial { cursor:pointer; transition:background-color 480ms ease, color 480ms ease, border-color 480ms ease, outline-color 480ms ease; }
     .dial span { font-size:.76em; }
-    .needle { position:absolute; inset:0; transform:rotate(var(--turn,0deg)); transition:transform 360ms ease; pointer-events:none; }
+    .needle { position:absolute; inset:0; transform:rotate(var(--turn,0deg)); transition:transform 560ms cubic-bezier(.22,.75,.24,1); pointer-events:none; }
     .needle::before { content:""; position:absolute; top:-.018em; left:50%; width:.045em; aspect-ratio:1; background:var(--ink); border-radius:50%; }
     .dial:focus-visible { outline:3px solid; }
     footer { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px 24px; border-top:1px solid; padding-top:14px; }
     h1 { margin:0; font:italic clamp(24px,4vw,52px)/1 "Xanh Mono",Georgia,serif; }
     p { margin:0; }
-    @media(prefers-reduced-motion:reduce) { .needle { transition:none; } }
+    @media(prefers-reduced-motion:reduce) { body, button.dial, .needle, .needle::before { transition:none; } }
   </style>
 </head>
 <body>
@@ -77,9 +79,12 @@ permalink: /404.html
       document.documentElement.dataset.colour = turns % 4;
       dial.style.setProperty('--turn', (turns * 90) + 'deg');
     });
+    let lastWheelTurn = -Infinity;
     dial.addEventListener('wheel', event => {
       if (document.activeElement !== dial || event.deltaY === 0) return;
       event.preventDefault();
+      if (event.timeStamp - lastWheelTurn < 500) return;
+      lastWheelTurn = event.timeStamp;
       dial.click();
     }, { passive:false });
   </script>
