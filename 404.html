@@ -27,27 +27,25 @@ permalink: /404.html
     a { color:inherit; }
     .brand { display:grid; place-items:center; width:48px; height:48px; }
     .brand svg { display:block; width:38px; height:auto; }
-    main { width:min(100%,1320px); margin:auto; padding:clamp(24px,5vw,72px) 5vw; display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); align-items:center; gap:clamp(28px,6vw,96px); }
-    .poster { margin:0; }
-    .number { position:relative; container-type:inline-size; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; min-height:clamp(170px,34vw,425px); padding:6% 4%; isolation:isolate; border-block:1px solid; }
+    main { width:min(100%,900px); margin:auto; padding:clamp(28px,5vw,70px) 5vw; display:grid; justify-items:center; text-align:center; gap:clamp(18px,4vw,40px); }
+    .poster { margin:0; width:min(100%,650px); }
+    .number { position:relative; container-type:inline-size; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:center; width:100%; min-height:clamp(160px,38vw,325px); padding:7% 5%; isolation:isolate; border:0; border-block:1px solid; border-radius:0; color:var(--ink); background:none; cursor:grab; touch-action:pan-y; }
+    .number:is(:hover,:focus-visible) { color:var(--ink); background:none; }
+    .number:active { cursor:grabbing; }
     .number::before { content:""; position:absolute; inset:16% 5%; border:1px dashed; border-radius:50%; transform:rotate(-12deg); z-index:-1; }
     .digit { display:grid; place-items:center; font:italic 37cqw/.95 var(--display); transition:transform 420ms cubic-bezier(.2,.85,.25,1.12); }
     .digit:first-child { transform:translateY(-11%) rotate(-15deg); }
     .digit:nth-child(2) { background:var(--ink); color:var(--paper); aspect-ratio:1; border-radius:50%; transform:translateY(10%) rotate(12deg); }
     .digit:last-child { color:transparent; -webkit-text-stroke:clamp(1px,.35vw,4px) var(--ink); transform:translateY(-13%) rotate(18deg); }
-    .number[data-arrangement="1"] .digit:first-child { transform:translateY(13%) rotate(15deg); }
-    .number[data-arrangement="1"] .digit:nth-child(2) { transform:translateY(-16%) rotate(-16deg); }
-    .number[data-arrangement="1"] .digit:last-child { transform:translateY(12%) rotate(-16deg); }
-    .number[data-arrangement="2"] .digit:first-child { transform:translateY(-16%) rotate(5deg); }
-    .number[data-arrangement="2"] .digit:nth-child(2) { transform:translateY(15%) rotate(-22deg) scale(.9); }
-    .number[data-arrangement="2"] .digit:last-child { transform:translateY(-14%) rotate(-25deg); }
-    figcaption { display:flex; justify-content:flex-end; padding-top:14px; }
-    button,.home { font:italic 18px/1.2 var(--display); color:inherit; background:none; border:1px solid; border-radius:99px; padding:10px 16px; text-decoration:none; cursor:pointer; }
-    :is(button,.home):is(:hover,:focus-visible) { background:var(--ink); color:var(--paper); }
+    .number.kicked .digit:first-child { transform:translate(-9%,14%) rotate(-30deg); }
+    .number.kicked .digit:nth-child(2) { transform:translateY(-27%) rotate(28deg); }
+    .number.kicked .digit:last-child { transform:translate(9%,13%) rotate(32deg); }
+    figcaption { padding-top:12px; font:italic 15px/1.2 var(--display); }
+    button:not(.number),.home { font:italic 18px/1.2 var(--display); color:inherit; background:none; border:1px solid; border-radius:99px; padding:10px 16px; text-decoration:none; cursor:pointer; }
+    :is(button:not(.number),.home):is(:hover,:focus-visible) { background:var(--ink); color:var(--paper); }
     h1 { margin:0; font:italic clamp(42px,7vw,98px)/.98 var(--display); letter-spacing:-.055em; }
     p { margin:18px 0 26px; }
     .home { display:inline-block; }
-    @media(max-width:700px) { main { grid-template-columns:1fr; max-width:540px; } .number { min-height:clamp(190px,61vw,300px); } }
     @media(prefers-reduced-motion:reduce) { .digit { transition:none; } }
   </style>
 </head>
@@ -59,10 +57,10 @@ permalink: /404.html
 </svg></a></header>
   <main>
     <figure class="poster">
-      <div class="number" id="error-number" data-arrangement="0" aria-hidden="true">
-        <span class="digit">4</span><span class="digit">0</span><span class="digit">4</span>
-      </div>
-      <figcaption><button type="button" id="shuffle" aria-controls="error-number" hidden>shuffle the 404 ↻</button></figcaption>
+      <button type="button" class="number" id="error-number" aria-label="Knock the 404 out of place" aria-describedby="number-hint">
+        <span class="digit" aria-hidden="true">4</span><span class="digit" aria-hidden="true">0</span><span class="digit" aria-hidden="true">4</span>
+      </button>
+      <figcaption id="number-hint">give the numbers a nudge ↑</figcaption>
     </figure>
     <section>
       <h1 aria-label="404. Page not found.">Well, that went sideways.</h1>
@@ -72,11 +70,17 @@ permalink: /404.html
   </main>
   <script>
     const number = document.getElementById('error-number');
-    const shuffle = document.getElementById('shuffle');
-    shuffle.addEventListener('click', () => {
-      number.dataset.arrangement = (Number(number.dataset.arrangement) + 1) % 3;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let settle;
+    number.addEventListener('click', () => {
+      clearTimeout(settle);
+      if (reducedMotion.matches) {
+        number.classList.toggle('kicked');
+        return;
+      }
+      number.classList.add('kicked');
+      settle = setTimeout(() => number.classList.remove('kicked'), 480);
     });
-    shuffle.hidden = false;
   </script>
 </body>
 </html>
