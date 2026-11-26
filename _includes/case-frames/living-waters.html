@@ -98,13 +98,11 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
   .case_study_pagination .large-button{font-size:22px}
   .case_study_pagination .pagination_arrow_svg:is(.left,.right){width:10vw}
 }
-  .case_study_pagination .next-case-study {
-    width: clamp(44px, 9vw, 110px); aspect-ratio: 1; border: 1px solid;
-    border-radius: 50%; text-decoration: none; font-size: clamp(22px, 3vw, 44px);
-  }
-  @media (max-width: 767px) {
-    .case_study_pagination { display: grid; }
-    .case_study_pagination .large-button { white-space: nowrap; }
+  .navigation-circle { display:block; width:clamp(58px,12vw,166px); height:auto; fill:currentColor; font:italic 17px "Xanh Mono",Georgia,serif; }
+  .navigation-arrow { font:400 46px "Xanh Mono",Georgia,serif; }
+  @media (max-width:767px) {
+    .case_study_pagination { display:grid; }
+    .case_study_pagination .large-button { white-space:nowrap; }
   }
 </style>
 </head>
@@ -123,9 +121,9 @@ a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 <p class="body-copy-small">Studio project · Sydney Fish Market, Glebe · 2026</p></div>
 <div class="section-marquee" aria-hidden="true"><div class="section-marquee-track"><div><span class="section-marquee-item"><i>01</i> the experience <span>⟶</span></span><span class="section-marquee-item"><i>02</i> prototype testing <span>⟶</span></span><span class="section-marquee-item"><i>03</i> design refinements <span>⟶</span></span></div><div><span class="section-marquee-item"><i>01</i> the experience <span>⟶</span></span><span class="section-marquee-item"><i>02</i> prototype testing <span>⟶</span></span><span class="section-marquee-item"><i>03</i> design refinements <span>⟶</span></span></div></div></div>
 {% include living-waters-content.html %}
-<div class="case_study_pagination"><a class="next-case-study" href="https://iamshruthi.com/nutripaw/" target="_top" aria-label="Previous case study: NutriPaw">←</a>
+<div class="case_study_pagination"><a class="next-case-study" href="https://iamshruthi.com/nutripaw/" target="_top" aria-label="Previous case study: NutriPaw"><svg class="navigation-circle" viewBox="0 0 166 166" aria-hidden="true"><circle cx="83" cy="83" r="80" fill="none" stroke="currentColor"/><circle cx="83" cy="83" r="57" fill="none" stroke="currentColor"/><defs><path id="lw-prev-ring" d="M83 14a69 69 0 1 1 0 138a69 69 0 1 1 0-138"/></defs><text><textPath href="#lw-prev-ring" textLength="427">this way ✦ this way ✦ this way ✦ </textPath></text><text class="navigation-arrow" x="83" y="97" text-anchor="middle">←</text></svg></a>
 <a class="large-button" href="https://iamshruthi.com/" target="_top">take me home</a>
-<a class="next-case-study" href="https://iamshruthi.com/lives-lived-well/" target="_top" aria-label="Next case study: Lives Lived Well">→</a></div>
+<a class="next-case-study" href="https://iamshruthi.com/lives-lived-well/" target="_top" aria-label="Next case study: Lives Lived Well"><svg class="navigation-circle" viewBox="0 0 166 166" aria-hidden="true"><circle cx="83" cy="83" r="80" fill="none" stroke="currentColor"/><circle cx="83" cy="83" r="57" fill="none" stroke="currentColor"/><defs><path id="lw-next-ring" d="M83 14a69 69 0 1 1 0 138a69 69 0 1 1 0-138"/></defs><text><textPath href="#lw-next-ring" textLength="427">that way ✦ that way ✦ that way ✦ </textPath></text><text class="navigation-arrow" x="83" y="97" text-anchor="middle">→</text></svg></a></div>
 </main>
 <script>
 const page = document.querySelector('.page-wrap');
