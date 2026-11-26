@@ -2,7 +2,9 @@
   <section class="content-align-left" data-living-waters-revised>
     <div class="content-section water-content">
       <style>
-        .water-content .water-figure { min-width: 0; margin: 0; }
+        .water-content .water-figure { min-width: 0; margin: 0; padding: clamp(10px, 1vw, 16px); background: var(--case-panel-background, #eae7df); border-radius: var(--case-media-radius, 10px); }
+        .water-content .water-figure figcaption { margin-bottom: 16px; }
+        .water-content .water-photo-pair img { aspect-ratio: 12 / 5; object-fit: contain; }
         .water-content .water-figure img { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius, 10px); }
         .water-content .water-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; }
         .water-content .water-cards .water-note { margin: 0; }
@@ -11,7 +13,7 @@
         <h2 class="display-medium"><span class="display-medium-alt_wrap">01</span>the experience</h2>
         <div class="caption"><p class="body-copy-small">A proposed interactive fountain for the Sydney Fish Market waterfront at Blackwattle Bay. Seven flush pads around a central wet zone trigger water, light and sound.</p></div>
       </div>
-      <figure class="water-figure">
+      <figure class="health-panel water-figure">
         <figcaption class="health-panel-title">Final proposal · Concept visualisation</figcaption>
         <img src="/assets/living-waters-final-concept.webp" width="1602" height="982" alt="Concept visualisation of the public fountain, smooth boulders and interaction pads on the Sydney Fish Market waterfront" loading="lazy" decoding="async">
       </figure>
@@ -20,7 +22,7 @@
         <div class="water-note"><h3 class="subheading">explore</h3><p class="body-copy-small">Stepping or wheeling onto a marked pad adds a distinct response. QR codes offer optional AR, while the physical interaction works without a phone.</p></div>
         <div class="water-note"><h3 class="subheading">join</h3><p class="body-copy-small">As others occupy more pads, their individual responses combine. Each person can contribute a layer to the shared experience.</p></div>
       </div>
-      <figure class="water-figure">
+      <figure class="health-panel water-figure">
         <figcaption class="health-panel-title">Concept storyboard · Passive, individual and group interaction</figcaption>
         <img src="/assets/living-waters-storyboard.webp" loading="lazy" decoding="async" alt="Storyboard showing visitors noticing the fountain, reading the guide, scanning a QR code and combining responses across the pads">
       </figure>
@@ -32,14 +34,14 @@
         <h2 class="display-medium"><span class="display-medium-alt_wrap">02</span>prototype testing</h2>
         <div class="caption"><p class="body-copy-small">A reduced lab setup used wired floor pads, activation lights and projected Fish Market footage to simulate the interaction. Four participants tried five tasks using think-aloud observation and task-ease ratings, followed by SUS and an interview.</p></div>
       </div>
-      <div class="water-cards">
-        <figure class="water-figure">
+      <div class="water-cards water-photo-pair">
+        <figure class="health-panel water-figure">
           <figcaption class="health-panel-title">Lab prototype · Wired floor pads</figcaption>
-          <img src="/assets/living-waters-prototype-pads.webp" loading="lazy" decoding="async" alt="Wired floor pads arranged for lab testing">
+          <img src="/assets/living-waters-prototype-pads.webp" width="496" height="205" loading="lazy" decoding="async" alt="Wired floor pads arranged for lab testing">
         </figure>
-        <figure class="water-figure">
+        <figure class="health-panel water-figure">
           <figcaption class="health-panel-title">Lab prototype · Activation feedback</figcaption>
-          <img src="/assets/living-waters-prototype-feedback.webp" loading="lazy" decoding="async" alt="Green lights indicating that a floor pad registered a participant">
+          <img src="/assets/living-waters-prototype-feedback.webp" width="459" height="205" loading="lazy" decoding="async" alt="Green lights indicating that a floor pad registered a participant">
         </figure>
       </div>
       <div class="water-note">
