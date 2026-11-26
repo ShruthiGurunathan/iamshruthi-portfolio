@@ -20,17 +20,13 @@
         .water-content .water-copy-block > :last-child { margin-bottom: 0; }
         .water-content .water-cards.water-evidence { grid-template-columns: repeat(2,minmax(0,1fr)); }
         .water-content .water-evidence h3 { margin-top: 0; }
-        .water-content .water-evidence img { aspect-ratio: 4 / 3; object-fit: contain; }
+        .water-content .water-testing-photo { aspect-ratio: 4 / 3; display: grid; place-items: center; overflow: hidden; }
+        .water-content .water-testing-photo img { width: 100%; height: 100%; object-fit: contain; }
+        .water-content .water-testing-copy { margin: 12px 0 0; }
+        .water-content .water-evidence figure { margin: 0; }
         .water-content .water-map { align-items: center; }
         .water-content .water-map figure { margin: 0; }
         .water-content .water-map p + p { margin-top: 12px; }
-        .water-content .water-pad-flow { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
-        .water-content .water-pad-flow li { display: grid; justify-items: center; align-content: start; gap: 10px; padding: 16px 10px; border: 1px solid currentColor; border-radius: 8px; text-align: center; }
-        .water-content .water-pad-flow strong { font-weight: 700; }
-        .water-content .water-pad-flow .pad-graphic { display: grid; place-items: center; width: 88px; aspect-ratio: 1; border: 2px solid; border-radius: 50%; font: italic 24px "Xanh Mono", Georgia, serif; }
-        .water-content .water-pad-flow li:nth-child(2) .pad-graphic { outline: 1px solid; outline-offset: 4px; }
-        .water-content .water-pad-flow li:last-child .pad-graphic { outline: 1px dashed; outline-offset: 6px; }
-        @media (max-width: 600px) { .water-content .water-pad-flow { grid-template-columns: 1fr; } }
         @media (max-width: 600px) { .water-content .water-cards.water-evidence { grid-template-columns: minmax(0,1fr); } }
         .water-content .water-figure img { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius, 10px); }
         .water-content .water-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; }
@@ -63,15 +59,19 @@
         <div class="caption"><p class="body-copy-small">We built a floor-pad prototype to see whether visitors could figure out where to start and recognise their own contribution when others joined. Four people tried it in a simulated market setting.</p></div>
       </div>
       <div class="water-cards water-evidence">
-        <div class="health-panel water-figure">
-          <h3 class="health-panel-title">Finding · Getting started</h3>
-          <img src="https://iamshruthi.com/assets/living-waters-solo.webp" width="1246" height="890" loading="lazy" decoding="async" alt="One participant testing a floor pad as its lights activate">
-          <p class="body-copy-small">One participant rated initial pad activation 3 out of 7 for ease. Joining others scored 5–6 out of 7.</p>
+        <div>
+          <figure class="health-panel water-figure">
+            <figcaption class="health-panel-title">Prototype · Single participant</figcaption>
+            <div class="water-testing-photo"><img src="https://iamshruthi.com/assets/living-waters-solo.webp" width="1246" height="890" loading="lazy" decoding="async" alt="One participant testing a floor pad as its lights activate"></div>
+          </figure>
+          <p class="body-copy-small water-testing-copy">One participant rated initial pad activation 3 out of 7 for ease. Joining others scored 5–6 out of 7.</p>
         </div>
-        <div class="health-panel water-figure">
-          <h3 class="health-panel-title">Finding · Recognising your contribution</h3>
-          <img src="https://iamshruthi.com/assets/living-waters-group.webp" width="1078" height="592" loading="lazy" decoding="async" alt="Participants testing neighbouring pads against a waterfront projection">
-          <p class="body-copy-small">Visitors enjoyed the shared lighting but found it harder to tell which sounds their pad had triggered.</p>
+        <div>
+          <figure class="health-panel water-figure">
+            <figcaption class="health-panel-title">Prototype · Group participation</figcaption>
+            <div class="water-testing-photo"><img src="https://iamshruthi.com/assets/living-waters-group.webp" width="1078" height="592" loading="lazy" decoding="async" alt="Participants testing neighbouring pads against a waterfront projection"></div>
+          </figure>
+          <p class="body-copy-small water-testing-copy">Visitors enjoyed the shared lighting but found it harder to tell which sounds their pad had triggered.</p>
         </div>
       </div>
     </div>
@@ -87,12 +87,8 @@
         <img src="https://iamshruthi.com/assets/living-waters-annotated-drawing.webp" width="2172" height="724" loading="lazy" decoding="async" alt="Original proposal drawing annotated with faint footprints, closely spaced interaction spots and an unmarked fountain edge">
       </figure>
       <figure class="health-panel water-figure">
-        <figcaption class="health-panel-title">Interaction sequence · Revised pad cues</figcaption>
-        <ol class="water-pad-flow body-copy-small">
-          <li><span class="pad-graphic" aria-hidden="true">01</span><strong>Find a spot</strong><span>Footprint markers and a short guide show where to begin.</span></li>
-          <li><span class="pad-graphic" aria-hidden="true">02</span><strong>Activate the pad</strong><span>A lit edge confirms that the pad has registered someone.</span></li>
-          <li><span class="pad-graphic" aria-hidden="true">03</span><strong>See your effect</strong><span>Each pad has a distinct response that can combine with others.</span></li>
-        </ol>
+        <figcaption class="health-panel-title">User evaluation · Findings and proposed changes</figcaption>
+        <img src="https://iamshruthi.com/assets/living-waters-refinement-evidence.webp" width="2040" height="625" loading="lazy" decoding="async" alt="The project evaluation diagrams link findings on starting, feedback, participation, access and meaning to the proposed design changes.">
       </figure>
       <div class="water-copy-block">
         <h3 class="subheading">keep access flexible</h3>
