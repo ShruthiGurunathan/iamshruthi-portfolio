@@ -20,6 +20,10 @@
         .water-content .water-copy-block > :last-child { margin-bottom: 0; }
         .water-content .water-cards.water-evidence { grid-template-columns: repeat(2,minmax(0,1fr)); }
         .water-content .water-evidence h3 { margin-top: 0; }
+        .water-content .water-evidence img { aspect-ratio: 4 / 3; object-fit: contain; }
+        .water-content .water-map { align-items: center; }
+        .water-content .water-map figure { margin: 0; }
+        .water-content .water-map p + p { margin-top: 12px; }
         @media (max-width: 600px) { .water-content .water-cards.water-evidence { grid-template-columns: minmax(0,1fr); } }
         .water-content .water-figure img { display: block; width: 100%; height: auto; border-radius: var(--case-media-radius, 10px); }
         .water-content .water-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 20px; }
@@ -28,10 +32,16 @@
         <h2 class="display-medium"><span class="display-medium-alt_wrap">01</span>the experience</h2>
         <div class="caption"><p class="body-copy-small">A proposed interactive fountain for the Sydney Fish Market waterfront at Blackwattle Bay. Seven flush pads around a central wet zone trigger water, light and sound.</p></div>
       </div>
-      <figure class="health-panel water-figure" style="max-width:720px">
+      <div class="water-cards water-evidence water-map">
+      <figure class="health-panel water-figure">
         <figcaption class="health-panel-title">Interaction map · How individual inputs build a shared response</figcaption>
         <img src="https://iamshruthi.com/assets/living-waters-concept-map.webp" width="666" height="526" loading="lazy" decoding="async" alt="Original project concept map connecting the pad layout, lighting and sound to individual and group participation">
       </figure>
+      <div class="water-copy-block">
+        <h3 class="subheading">from one step to shared play</h3>
+        <p class="body-copy-small">The map links the physical cues to what visitors can do. A lit edge marks where to stand. Moving between pads reveals different sounds. Several occupied pads bring the responses together into one shared sequence.</p>
+      </div>
+      </div>
       <div class="water-cards">
         <div class="water-copy-block"><h3 class="subheading">watch</h3><p class="body-copy-small">In passive mode the fountain gives people a place to pause, with gentle water, light and sound.</p></div>
         <div class="water-copy-block"><h3 class="subheading">explore</h3><p class="body-copy-small">Stepping or wheeling onto a marked pad adds a distinct response. QR codes offer optional AR, while the physical interaction works without a phone.</p></div>
@@ -48,10 +58,12 @@
       <div class="water-cards water-evidence">
         <div class="health-panel water-figure">
           <h3 class="health-panel-title">Finding · Getting started</h3>
+          <img src="https://iamshruthi.com/assets/living-waters-solo.webp" width="1246" height="890" loading="lazy" decoding="async" alt="One participant testing a floor pad as its lights activate">
           <p class="body-copy-small">One participant rated initial pad activation 3 out of 7 for ease. Joining others scored 5–6 out of 7.</p>
         </div>
         <div class="health-panel water-figure">
           <h3 class="health-panel-title">Finding · Recognising your contribution</h3>
+          <img src="https://iamshruthi.com/assets/living-waters-group.webp" width="1078" height="592" loading="lazy" decoding="async" alt="Participants testing neighbouring pads against a waterfront projection">
           <p class="body-copy-small">Visitors enjoyed the shared lighting but found it harder to tell which sounds their pad had triggered.</p>
         </div>
       </div>
